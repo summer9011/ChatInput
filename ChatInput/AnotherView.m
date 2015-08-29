@@ -82,8 +82,6 @@
         UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didChooseItem:)];
         [itemView addGestureRecognizer:singleTap];
         
-        NSLog(@"%f", top.constant);
-        
         i ++;
     }
     

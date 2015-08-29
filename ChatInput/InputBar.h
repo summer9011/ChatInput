@@ -36,9 +36,19 @@ typedef NS_ENUM(NSUInteger, InputMode){
 - (void)didStartVoice;
 
 /**
- *  结束录音
+ *  完成录音
  */
-- (void)didEndVoice;
+- (void)didFinishVoice;
+
+/**
+ *  将要取消录音
+ */
+- (void)willCancelVoice;
+
+/**
+ *  已经取消录音
+ */
+- (void)didCancelledVoice;
 
 /**
  *  选择其中一个输入模式

@@ -222,7 +222,8 @@ static NSString *CellIdentifier = @"CIDetailCell";
 #pragma mark - InputBarDelegate
 
 - (void)didSendMessage:(NSString *)message {
-    NSLog(@"%@", message);
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"发送文字" message:message delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil, nil];
+    [alert show];
 }
 
 - (void)didChooseTextField {
@@ -237,11 +238,19 @@ static NSString *CellIdentifier = @"CIDetailCell";
 }
 
 - (void)didStartVoice {
-    NSLog(@"开始录音");
+    self.navigationItem.title = @"开始录音";
 }
 
-- (void)didEndVoice {
-    NSLog(@"结束录音");
+- (void)didFinishVoice {
+    self.navigationItem.title = @"完成录音";
+}
+
+- (void)willCancelVoice {
+    self.navigationItem.title = @"将要取消录音";
+}
+
+- (void)didCancelledVoice {
+    self.navigationItem.title = @"取消录音";
 }
 
 - (void)inputBar:(InputBar *)inputBar didSelectedMode:(InputMode)inputMode {
@@ -337,7 +346,8 @@ static NSString *CellIdentifier = @"CIDetailCell";
 - (void)didChooseItem:(NSUInteger)index {
     NSDictionary *item = self.anotherItems[index];
     
-    NSLog(@"%@", item[@"title"]);
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"处理事件" message:item[@"title"] delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil, nil];
+    [alert show];
 }
 
 @end

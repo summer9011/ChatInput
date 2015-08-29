@@ -87,7 +87,18 @@
     UIButton *button = (UIButton *)sender;
     [button setBackgroundColor:[UIColor colorWithRed:240/255.f green:240/255.f blue:240/255.f alpha:1.f]];
     
-    [self.inputDelegate didEndVoice];
+    [self.inputDelegate didFinishVoice];
+}
+
+- (IBAction)voiceDragOutside:(id)sender {
+    UIButton *button = (UIButton *)sender;
+    [button setBackgroundColor:[UIColor colorWithRed:240/255.f green:240/255.f blue:240/255.f alpha:1.f]];
+    
+    [self.inputDelegate willCancelVoice];
+}
+
+- (IBAction)voiceUpOutside:(id)sender {
+    [self.inputDelegate didCancelledVoice];
 }
 
 #pragma mark - Public Method

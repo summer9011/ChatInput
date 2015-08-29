@@ -71,7 +71,9 @@
                     </state>
                     <connections>
                         <action selector="voiceDown:" destination="iN0-l3-epB" eventType="touchDown" id="tgo-3F-7q9"/>
+                        <action selector="voiceDragOutside:" destination="iN0-l3-epB" eventType="touchDragOutside" id="KHU-5P-HjR"/>
                         <action selector="voiceUp:" destination="iN0-l3-epB" eventType="touchUpInside" id="64C-Oo-ebs"/>
+                        <action selector="voiceUpOutside:" destination="iN0-l3-epB" eventType="touchUpOutside" id="FK1-kh-T8o"/>
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GAa-F0-XZ6">
