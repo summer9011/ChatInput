@@ -10,42 +10,55 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="164"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I40-z4-P2B">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="134"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I40-z4-P2B">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="129"/>
                 </scrollView>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WgE-Fa-2YC">
-                    <rect key="frame" x="0.0" y="134" width="600" height="30"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WgE-Fa-2YC">
+                    <rect key="frame" x="0.0" y="129" width="600" height="35"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="pgi-Uo-YeW"/>
+                        <constraint firstAttribute="height" constant="35" id="pgi-Uo-YeW"/>
                     </constraints>
+                    <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="50" maxY="0.0"/>
                 </scrollView>
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="fTo-ox-hxn">
-                    <rect key="frame" x="288" y="97" width="23" height="37"/>
+                    <rect key="frame" x="288" y="92" width="23" height="37"/>
                     <color key="pageIndicatorTintColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="currentPageIndicatorTintColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                 </pageControl>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Emotion" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZx-Lf-QjA">
-                    <rect key="frame" x="268" y="72" width="64" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9K-BO-pDK">
+                    <rect key="frame" x="550" y="129" width="50" height="35"/>
+                    <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="luq-7a-EwP"/>
+                    </constraints>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
             </subviews>
+            <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="F9K-BO-pDK" secondAttribute="trailing" id="31Z-pb-Jnt"/>
+                <constraint firstItem="WgE-Fa-2YC" firstAttribute="bottom" secondItem="F9K-BO-pDK" secondAttribute="bottom" id="FHg-9q-HCN"/>
                 <constraint firstItem="WgE-Fa-2YC" firstAttribute="top" secondItem="fTo-ox-hxn" secondAttribute="bottom" id="JdI-fx-ChO"/>
                 <constraint firstAttribute="centerX" secondItem="fTo-ox-hxn" secondAttribute="centerX" id="LVw-df-c8e"/>
+                <constraint firstItem="WgE-Fa-2YC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="N5T-FN-HIk"/>
                 <constraint firstItem="I40-z4-P2B" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="NPv-np-bXs"/>
-                <constraint firstAttribute="trailing" secondItem="WgE-Fa-2YC" secondAttribute="trailing" id="P4V-cV-rHt"/>
+                <constraint firstItem="WgE-Fa-2YC" firstAttribute="top" secondItem="F9K-BO-pDK" secondAttribute="top" id="Ta1-vQ-5ok"/>
                 <constraint firstAttribute="trailing" secondItem="I40-z4-P2B" secondAttribute="trailing" id="U8k-qG-qJl"/>
                 <constraint firstItem="I40-z4-P2B" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="bfb-Lb-cxU"/>
-                <constraint firstAttribute="centerX" secondItem="FZx-Lf-QjA" secondAttribute="centerX" id="bqf-4m-7wo"/>
-                <constraint firstItem="WgE-Fa-2YC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="gWO-Qu-Gb8"/>
-                <constraint firstAttribute="centerY" secondItem="FZx-Lf-QjA" secondAttribute="centerY" id="hqC-9R-fjj"/>
                 <constraint firstAttribute="bottom" secondItem="WgE-Fa-2YC" secondAttribute="bottom" id="i0Y-1L-j5o"/>
                 <constraint firstItem="WgE-Fa-2YC" firstAttribute="top" secondItem="I40-z4-P2B" secondAttribute="bottom" id="mTg-Yk-0l1"/>
+                <constraint firstAttribute="trailing" secondItem="WgE-Fa-2YC" secondAttribute="trailing" id="uz4-Qj-xDl"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="emotionContentScrollView" destination="I40-z4-P2B" id="iaO-xr-vzF"/>
+                <outlet property="emotionListScrollView" destination="WgE-Fa-2YC" id="J3p-GY-mfu"/>
+                <outlet property="pageControl" destination="fTo-ox-hxn" id="mgf-fr-ytb"/>
+                <outlet property="sendEmotionBtn" destination="F9K-BO-pDK" id="K4S-0i-b6Y"/>
+            </connections>
             <point key="canvasLocation" x="305" y="215"/>
         </view>
     </objects>

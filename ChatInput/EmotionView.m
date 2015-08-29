@@ -8,6 +8,15 @@
 
 #import "EmotionView.h"
 
+@interface EmotionView () <UIScrollViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UIScrollView *emotionContentScrollView;
+@property (weak, nonatomic) IBOutlet UIScrollView *emotionListScrollView;
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (weak, nonatomic) IBOutlet UIButton *sendEmotionBtn;
+
+@end
+
 @implementation EmotionView
 
 - (void)awakeFromNib {
@@ -15,6 +24,16 @@
     
     self.translatesAutoresizingMaskIntoConstraints = NO;
     self.isShow = NO;
+    
+    self.emotionContentScrollView.delegate = self;
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if ([scrollView isEqual:self.emotionContentScrollView]) {
+        
+    }
 }
 
 @end

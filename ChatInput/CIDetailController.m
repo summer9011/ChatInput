@@ -13,7 +13,7 @@
 #import "EmotionView.h"
 #import "AnotherView.h"
 
-@interface CIDetailController () <InputBarDelegate, AnotherViewDelegate>
+@interface CIDetailController () <InputBarDelegate, EmotionViewDelegate, AnotherViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *chatDetail;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *chatDetailBottom;
@@ -339,6 +339,12 @@ static NSString *CellIdentifier = @"CIDetailCell";
         default:
             break;
     }
+}
+
+#pragma mark - EmotionViewDelegate
+
+- (void)didChooseEmotion:(NSUInteger)typeIndex contentIndex:(NSUInteger)contentIndex {
+    NSLog(@"typeIndex %ld, contentIndex %ld", typeIndex, contentIndex);
 }
 
 #pragma mark - AnotherViewDelegate

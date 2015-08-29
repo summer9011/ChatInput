@@ -8,7 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol EmotionViewDelegate <NSObject>
+
+/**
+ *  选中了某个表情
+ *  @param 表情分类的下标
+ *  @param 表情详情的下标
+ */
+- (void)didChooseEmotion:(NSUInteger)typeIndex contentIndex:(NSUInteger)contentIndex;
+
+@end
+
 @interface EmotionView : UIView
+
+@property (nonatomic, weak) id<EmotionViewDelegate> emotionViewDelegate;
 
 /**
  *  View是否显示
