@@ -13,7 +13,7 @@
 #import "EmotionView.h"
 #import "AnotherView.h"
 
-@interface CIDetailController () <InputBarDelegate>
+@interface CIDetailController () <InputBarDelegate, AnotherViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *chatDetail;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *chatDetailBottom;
@@ -26,6 +26,7 @@
 
 @property (nonatomic, strong) AnotherView *anotherView;
 @property (nonatomic, strong) NSLayoutConstraint *anotherViewBottom;
+@property (nonatomic, strong) NSArray *anotherItems;
 
 @end
 
@@ -98,6 +99,7 @@ static NSString *CellIdentifier = @"CIDetailCell";
     //anotherView
     NSArray *nibViews = [[NSBundle mainBundle] loadNibNamed:@"AnotherView" owner:@"AnotherView" options:nil];
     self.anotherView = nibViews[0];
+    self.anotherView.anotherViewDelegate = self;
     
     [self.view addSubview:self.anotherView];
     
@@ -108,6 +110,53 @@ static NSString *CellIdentifier = @"CIDetailCell";
     NSLayoutConstraint *leading = [NSLayoutConstraint constraintWithItem:self.anotherView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1.f constant:0.f];
     self.anotherViewBottom = [NSLayoutConstraint constraintWithItem:self.anotherView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.f constant:258.f];
     [self.view addConstraints:@[leading, self.anotherViewBottom]];
+    
+    //设置AnotherView中的内容
+    self.anotherItems = @[
+                          @{
+                              @"title": @"照片",
+                              @"imageName": @"CIAnotherContent1"
+                              },
+                          @{
+                              @"title": @"拍摄",
+                              @"imageName": @"CIAnotherContent2"
+                              },
+                          @{
+                              @"title": @"小视频",
+                              @"imageName": @"CIAnotherContent3"
+                              },
+                          @{
+                              @"title": @"视频聊天",
+                              @"imageName": @"CIAnotherContent4"
+                              },
+                          @{
+                              @"title": @"红包",
+                              @"imageName": @"CIAnotherContent1"
+                              },
+                          @{
+                              @"title": @"转账",
+                              @"imageName": @"CIAnotherContent2"
+                              },
+                          @{
+                              @"title": @"位置",
+                              @"imageName": @"CIAnotherContent3"
+                              },
+                          @{
+                              @"title": @"收藏",
+                              @"imageName": @"CIAnotherContent4"
+                              },
+                          @{
+                              @"title": @"个人名片",
+                              @"imageName": @"CIAnotherContent1"
+                              },
+                          @{
+                              @"title": @"实时对讲机",
+                              @"imageName": @"CIAnotherContent2"
+                              }
+                          ];
+    
+    //1,2; 2,4; 3,6
+    [self.anotherView addItems:self.anotherItems row:2 col:4];
 }
 
 #pragma mark - UITableViewDataSource, UITableViewDelegate
@@ -281,6 +330,14 @@ static NSString *CellIdentifier = @"CIDetailCell";
         default:
             break;
     }
+}
+
+#pragma mark - AnotherViewDelegate
+
+- (void)didChooseItem:(NSUInteger)index {
+    NSDictionary *item = self.anotherItems[index];
+    
+    NSLog(@"%@", item[@"title"]);
 }
 
 @end

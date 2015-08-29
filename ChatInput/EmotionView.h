@@ -10,6 +10,9 @@
 
 @interface EmotionView : UIView
 
+/**
+ *  View是否显示
+ */
 @property (nonatomic, assign) BOOL isShow;
 
 @end

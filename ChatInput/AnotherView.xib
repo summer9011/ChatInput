@@ -10,27 +10,19 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="185"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b8A-Dm-ufi">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="185"/>
-                </scrollView>
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="Mey-RY-M4b">
                     <rect key="frame" x="288" y="148" width="23" height="37"/>
                     <color key="pageIndicatorTintColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="currentPageIndicatorTintColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                 </pageControl>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Another" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qcq-B3-MSw">
-                    <rect key="frame" x="270" y="82" width="61" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8A-Dm-ufi">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="185"/>
+                </scrollView>
             </subviews>
             <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="centerX" secondItem="qcq-B3-MSw" secondAttribute="centerX" id="1e2-X1-4Tx"/>
                 <constraint firstAttribute="bottom" secondItem="Mey-RY-M4b" secondAttribute="bottom" id="CRe-vg-hgy"/>
                 <constraint firstAttribute="centerX" secondItem="Mey-RY-M4b" secondAttribute="centerX" id="Emc-lK-HfU"/>
-                <constraint firstAttribute="centerY" secondItem="qcq-B3-MSw" secondAttribute="centerY" id="PcG-4c-0e7"/>
                 <constraint firstAttribute="trailing" secondItem="b8A-Dm-ufi" secondAttribute="trailing" id="RNY-Yd-ORE"/>
                 <constraint firstAttribute="bottom" secondItem="b8A-Dm-ufi" secondAttribute="bottom" id="hEr-2z-Jum"/>
                 <constraint firstItem="b8A-Dm-ufi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="t3Y-6S-arf"/>
@@ -38,6 +30,10 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="pageControl" destination="Mey-RY-M4b" id="IvP-yQ-Y3v"/>
+                <outlet property="scrollView" destination="b8A-Dm-ufi" id="0jA-LE-G2e"/>
+            </connections>
             <point key="canvasLocation" x="565" y="228.5"/>
         </view>
     </objects>
