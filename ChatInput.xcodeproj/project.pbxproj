@@ -24,6 +24,10 @@
 		183AF51D1B91376100292936 /* CIVoice.png in Resources */ = {isa = PBXBuildFile; fileRef = 183AF5191B91376100292936 /* CIVoice.png */; };
 		183AF51E1B91376100292936 /* CIKeyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 183AF51A1B91376100292936 /* CIKeyboard.png */; };
 		183AF51F1B91376100292936 /* CIAnother.png in Resources */ = {isa = PBXBuildFile; fileRef = 183AF51B1B91376100292936 /* CIAnother.png */; };
+		183AF5241B91473F00292936 /* EmotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AF5231B91473F00292936 /* EmotionView.m */; };
+		183AF5261B91475300292936 /* EmotionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183AF5251B91475300292936 /* EmotionView.xib */; };
+		183AF5291B91568A00292936 /* AnotherView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AF5281B91568A00292936 /* AnotherView.m */; };
+		183AF52B1B91569A00292936 /* AnotherView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183AF52A1B91569A00292936 /* AnotherView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +67,12 @@
 		183AF5191B91376100292936 /* CIVoice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CIVoice.png; sourceTree = "<group>"; };
 		183AF51A1B91376100292936 /* CIKeyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CIKeyboard.png; sourceTree = "<group>"; };
 		183AF51B1B91376100292936 /* CIAnother.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CIAnother.png; sourceTree = "<group>"; };
+		183AF5221B91473F00292936 /* EmotionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmotionView.h; sourceTree = "<group>"; };
+		183AF5231B91473F00292936 /* EmotionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmotionView.m; sourceTree = "<group>"; };
+		183AF5251B91475300292936 /* EmotionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmotionView.xib; sourceTree = "<group>"; };
+		183AF5271B91568A00292936 /* AnotherView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnotherView.h; sourceTree = "<group>"; };
+		183AF5281B91568A00292936 /* AnotherView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnotherView.m; sourceTree = "<group>"; };
+		183AF52A1B91569A00292936 /* AnotherView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnotherView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +185,12 @@
 				183AF5131B9136D300292936 /* InputBar.h */,
 				183AF5141B9136D300292936 /* InputBar.m */,
 				183AF5161B9136E100292936 /* InputBar.xib */,
+				183AF5221B91473F00292936 /* EmotionView.h */,
+				183AF5231B91473F00292936 /* EmotionView.m */,
+				183AF5251B91475300292936 /* EmotionView.xib */,
+				183AF5271B91568A00292936 /* AnotherView.h */,
+				183AF5281B91568A00292936 /* AnotherView.m */,
+				183AF52A1B91569A00292936 /* AnotherView.xib */,
 			);
 			name = InputViews;
 			sourceTree = "<group>";
@@ -259,8 +275,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				183AF52B1B91569A00292936 /* AnotherView.xib in Resources */,
 				183AF51F1B91376100292936 /* CIAnother.png in Resources */,
 				183AF4E91B9133C900292936 /* Main.storyboard in Resources */,
+				183AF5261B91475300292936 /* EmotionView.xib in Resources */,
 				183AF4EE1B9133C900292936 /* LaunchScreen.xib in Resources */,
 				183AF51E1B91376100292936 /* CIKeyboard.png in Resources */,
 				183AF51C1B91376100292936 /* CIEmotion.png in Resources */,
@@ -290,6 +308,8 @@
 				183AF4E61B9133C900292936 /* ViewController.m in Sources */,
 				183AF4E31B9133C900292936 /* AppDelegate.m in Sources */,
 				183AF5071B91344800292936 /* CIDetailController.m in Sources */,
+				183AF5291B91568A00292936 /* AnotherView.m in Sources */,
+				183AF5241B91473F00292936 /* EmotionView.m in Sources */,
 				183AF5111B91355600292936 /* CIDetailCell.m in Sources */,
 				183AF4E01B9133C900292936 /* main.m in Sources */,
 			);

@@ -54,11 +54,26 @@
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jur-Bz-fEM">
                     <rect key="frame" x="51" y="8" width="459" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="wL0-jg-pgJ"/>
-                    </connections>
+                    <textInputTraits key="textInputTraits" returnKeyType="send"/>
                 </textField>
+                <button hidden="YES" opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zoF-Z3-MqU">
+                    <rect key="frame" x="51" y="8" width="459" height="30"/>
+                    <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="XYm-WS-A1o"/>
+                    </constraints>
+                    <state key="normal" title="按住  说话">
+                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted" title="松开  结束">
+                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="voiceDown:" destination="iN0-l3-epB" eventType="touchDown" id="tgo-3F-7q9"/>
+                        <action selector="voiceUp:" destination="iN0-l3-epB" eventType="touchUpInside" id="64C-Oo-ebs"/>
+                    </connections>
+                </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GAa-F0-XZ6">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="1"/>
                     <color key="backgroundColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -78,16 +93,19 @@
             <constraints>
                 <constraint firstItem="PoD-qo-rwf" firstAttribute="leading" secondItem="FiN-8T-hxL" secondAttribute="trailing" constant="4" id="0L8-0g-Agc"/>
                 <constraint firstItem="eCh-GS-HXm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="0Xa-Wa-vtu"/>
+                <constraint firstItem="jur-Bz-fEM" firstAttribute="trailing" secondItem="zoF-Z3-MqU" secondAttribute="trailing" id="0Yp-Jv-WjD"/>
                 <constraint firstItem="GAa-F0-XZ6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="A2o-Nk-O61"/>
                 <constraint firstAttribute="trailing" secondItem="PoD-qo-rwf" secondAttribute="trailing" constant="8" id="D3i-Qr-cEY"/>
                 <constraint firstAttribute="trailing" secondItem="vvL-7R-Gd2" secondAttribute="trailing" id="Upw-9v-Xcv"/>
                 <constraint firstItem="FiN-8T-hxL" firstAttribute="centerY" secondItem="eCh-GS-HXm" secondAttribute="centerY" id="UxO-nx-21V"/>
                 <constraint firstItem="eCh-GS-HXm" firstAttribute="centerY" secondItem="PoD-qo-rwf" secondAttribute="centerY" id="VcU-JU-siP"/>
                 <constraint firstItem="GAa-F0-XZ6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Wez-iA-yB9"/>
+                <constraint firstItem="jur-Bz-fEM" firstAttribute="leading" secondItem="zoF-Z3-MqU" secondAttribute="leading" id="Ycm-Fe-KR5"/>
                 <constraint firstItem="vvL-7R-Gd2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="aYp-Sq-RVW"/>
                 <constraint firstItem="jur-Bz-fEM" firstAttribute="leading" secondItem="eCh-GS-HXm" secondAttribute="trailing" constant="8" id="bLZ-Ma-tHP"/>
                 <constraint firstAttribute="bottom" secondItem="vvL-7R-Gd2" secondAttribute="bottom" id="eC9-KE-DeF"/>
                 <constraint firstItem="FiN-8T-hxL" firstAttribute="leading" secondItem="jur-Bz-fEM" secondAttribute="trailing" constant="8" id="k0f-1P-AGI"/>
+                <constraint firstItem="jur-Bz-fEM" firstAttribute="bottom" secondItem="zoF-Z3-MqU" secondAttribute="bottom" id="kFJ-0a-qga"/>
                 <constraint firstAttribute="bottom" secondItem="jur-Bz-fEM" secondAttribute="bottom" constant="6" id="vff-W6-7kU"/>
                 <constraint firstAttribute="bottom" secondItem="eCh-GS-HXm" secondAttribute="bottom" constant="4" id="xI9-VN-f6b"/>
                 <constraint firstAttribute="trailing" secondItem="GAa-F0-XZ6" secondAttribute="trailing" id="yE2-B0-r5x"/>
@@ -99,6 +117,7 @@
                 <outlet property="emotionBtn" destination="FiN-8T-hxL" id="bRH-dh-vgA"/>
                 <outlet property="inputModeBtn" destination="eCh-GS-HXm" id="Xop-pA-MxN"/>
                 <outlet property="textField" destination="jur-Bz-fEM" id="mSe-P7-S6O"/>
+                <outlet property="voiceBtn" destination="zoF-Z3-MqU" id="cse-6t-MqC"/>
             </connections>
             <point key="canvasLocation" x="565" y="213.5"/>
         </view>

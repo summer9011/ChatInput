@@ -8,12 +8,7 @@
 
 #import "InputBar.h"
 
-@interface InputBar ()
-
-@property (weak, nonatomic) IBOutlet UIButton *inputModeBtn;
-@property (weak, nonatomic) IBOutlet UIButton *anotherBtn;
-@property (weak, nonatomic) IBOutlet UIButton *emotionBtn;
-@property (weak, nonatomic) IBOutlet UITextField *textField;
+@interface InputBar () <UITextFieldDelegate>
 
 @end
 
@@ -23,6 +18,13 @@
     [super awakeFromNib];
     
     self.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    self.textField.delegate = self;
+    
+    self.voiceBtn.layer.masksToBounds = YES;
+    self.voiceBtn.layer.cornerRadius = 5.f;
+    self.voiceBtn.layer.borderColor = [UIColor colorWithRed:200/255.f green:200/255.f blue:200/255.f alpha:1.f].CGColor;
+    self.voiceBtn.layer.borderWidth = 0.5;
 }
 
 - (IBAction)changeMode:(id)sender {
@@ -32,9 +34,20 @@
         if (button.selected) {
             button.selected = NO;
             
+            [UIView animateWithDuration:0.3 animations:^{
+                self.voiceBtn.alpha = 0.f;
+            } completion:^(BOOL finished) {
+                self.voiceBtn.hidden = YES;
+            }];
+            
             [self.inputDelegate inputBar:self didSelectedMode:InputTextMode];
         } else {
             button.selected = YES;
+            
+            self.voiceBtn.hidden = NO;
+            [UIView animateWithDuration:0.3 animations:^{
+                self.voiceBtn.alpha = 1.f;
+            }];
             
             [self.inputDelegate inputBar:self didSelectedMode:InputVoiceMode];
         }
@@ -61,6 +74,66 @@
             [self.inputDelegate inputBar:self didSelectedMode:InputAnotherMode];
         }
     }
+}
+
+- (IBAction)voiceDown:(id)sender {
+    UIButton *button = (UIButton *)sender;
+    [button setBackgroundColor:[UIColor colorWithRed:220/255.f green:220/255.f blue:220/255.f alpha:1.f]];
+    
+    [self.inputDelegate didStartVoice];
+}
+
+- (IBAction)voiceUp:(id)sender {
+    UIButton *button = (UIButton *)sender;
+    [button setBackgroundColor:[UIColor colorWithRed:240/255.f green:240/255.f blue:240/255.f alpha:1.f]];
+    
+    [self.inputDelegate didEndVoice];
+}
+
+#pragma mark - Public Method
+
+- (void)beginEditing {
+    [self.textField becomeFirstResponder];
+}
+
+- (void)endEditing {
+    [self.textField resignFirstResponder];
+}
+
+- (void)showVoiceInput {
+    self.inputModeBtn.selected = YES;
+    
+    self.voiceBtn.hidden = NO;
+    [UIView animateWithDuration:0.3 animations:^{
+        self.voiceBtn.alpha = 1.f;
+    }];
+}
+
+- (void)hideVoiceInput {
+    self.inputModeBtn.selected = NO;
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        self.voiceBtn.alpha = 0.f;
+    } completion:^(BOOL finished) {
+        self.voiceBtn.hidden = YES;
+    }];
+}
+
+#pragma mark - UITextFieldDelegate
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    [self.inputDelegate didChooseTextField];
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self.inputDelegate didSendMessage:textField.text];
+    textField.text = nil;
+    
+    return YES;
 }
 
 @end

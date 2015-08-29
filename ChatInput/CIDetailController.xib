@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CIDetailController">
             <connections>
                 <outlet property="chatDetail" destination="csA-kb-VhA" id="oE8-26-p2T"/>
+                <outlet property="chatDetailBottom" destination="po7-Cd-lQE" id="vb5-1x-CSx"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
