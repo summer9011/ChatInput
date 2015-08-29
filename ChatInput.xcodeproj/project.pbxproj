@@ -14,6 +14,16 @@
 		183AF4EB1B9133C900292936 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 183AF4EA1B9133C900292936 /* Images.xcassets */; };
 		183AF4EE1B9133C900292936 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183AF4EC1B9133C900292936 /* LaunchScreen.xib */; };
 		183AF4FA1B9133C900292936 /* ChatInputTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AF4F91B9133C900292936 /* ChatInputTests.m */; };
+		183AF5071B91344800292936 /* CIDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AF5051B91344800292936 /* CIDetailController.m */; };
+		183AF5081B91344800292936 /* CIDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183AF5061B91344800292936 /* CIDetailController.xib */; };
+		183AF5111B91355600292936 /* CIDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AF50F1B91355600292936 /* CIDetailCell.m */; };
+		183AF5121B91355600292936 /* CIDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183AF5101B91355600292936 /* CIDetailCell.xib */; };
+		183AF5151B9136D300292936 /* InputBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AF5141B9136D300292936 /* InputBar.m */; };
+		183AF5171B9136E100292936 /* InputBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183AF5161B9136E100292936 /* InputBar.xib */; };
+		183AF51C1B91376100292936 /* CIEmotion.png in Resources */ = {isa = PBXBuildFile; fileRef = 183AF5181B91376100292936 /* CIEmotion.png */; };
+		183AF51D1B91376100292936 /* CIVoice.png in Resources */ = {isa = PBXBuildFile; fileRef = 183AF5191B91376100292936 /* CIVoice.png */; };
+		183AF51E1B91376100292936 /* CIKeyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 183AF51A1B91376100292936 /* CIKeyboard.png */; };
+		183AF51F1B91376100292936 /* CIAnother.png in Resources */ = {isa = PBXBuildFile; fileRef = 183AF51B1B91376100292936 /* CIAnother.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +50,19 @@
 		183AF4F31B9133C900292936 /* ChatInputTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChatInputTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		183AF4F81B9133C900292936 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		183AF4F91B9133C900292936 /* ChatInputTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatInputTests.m; sourceTree = "<group>"; };
+		183AF5041B91344800292936 /* CIDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIDetailController.h; sourceTree = "<group>"; };
+		183AF5051B91344800292936 /* CIDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIDetailController.m; sourceTree = "<group>"; };
+		183AF5061B91344800292936 /* CIDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CIDetailController.xib; sourceTree = "<group>"; };
+		183AF50E1B91355600292936 /* CIDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIDetailCell.h; sourceTree = "<group>"; };
+		183AF50F1B91355600292936 /* CIDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIDetailCell.m; sourceTree = "<group>"; };
+		183AF5101B91355600292936 /* CIDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CIDetailCell.xib; sourceTree = "<group>"; };
+		183AF5131B9136D300292936 /* InputBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputBar.h; sourceTree = "<group>"; };
+		183AF5141B9136D300292936 /* InputBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputBar.m; sourceTree = "<group>"; };
+		183AF5161B9136E100292936 /* InputBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputBar.xib; sourceTree = "<group>"; };
+		183AF5181B91376100292936 /* CIEmotion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CIEmotion.png; sourceTree = "<group>"; };
+		183AF5191B91376100292936 /* CIVoice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CIVoice.png; sourceTree = "<group>"; };
+		183AF51A1B91376100292936 /* CIKeyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CIKeyboard.png; sourceTree = "<group>"; };
+		183AF51B1B91376100292936 /* CIAnother.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CIAnother.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +104,7 @@
 		183AF4DC1B9133C900292936 /* ChatInput */ = {
 			isa = PBXGroup;
 			children = (
+				183AF5031B91342100292936 /* InputView */,
 				183AF4E11B9133C900292936 /* AppDelegate.h */,
 				183AF4E21B9133C900292936 /* AppDelegate.m */,
 				183AF4E41B9133C900292936 /* ViewController.h */,
@@ -117,6 +141,42 @@
 				183AF4F81B9133C900292936 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		183AF5031B91342100292936 /* InputView */ = {
+			isa = PBXGroup;
+			children = (
+				183AF5041B91344800292936 /* CIDetailController.h */,
+				183AF5051B91344800292936 /* CIDetailController.m */,
+				183AF5061B91344800292936 /* CIDetailController.xib */,
+				183AF50E1B91355600292936 /* CIDetailCell.h */,
+				183AF50F1B91355600292936 /* CIDetailCell.m */,
+				183AF5101B91355600292936 /* CIDetailCell.xib */,
+				183AF5201B91406B00292936 /* Images */,
+				183AF5211B91407600292936 /* InputViews */,
+			);
+			name = InputView;
+			sourceTree = "<group>";
+		};
+		183AF5201B91406B00292936 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				183AF5181B91376100292936 /* CIEmotion.png */,
+				183AF5191B91376100292936 /* CIVoice.png */,
+				183AF51A1B91376100292936 /* CIKeyboard.png */,
+				183AF51B1B91376100292936 /* CIAnother.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		183AF5211B91407600292936 /* InputViews */ = {
+			isa = PBXGroup;
+			children = (
+				183AF5131B9136D300292936 /* InputBar.h */,
+				183AF5141B9136D300292936 /* InputBar.m */,
+				183AF5161B9136E100292936 /* InputBar.xib */,
+			);
+			name = InputViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,8 +259,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				183AF51F1B91376100292936 /* CIAnother.png in Resources */,
 				183AF4E91B9133C900292936 /* Main.storyboard in Resources */,
 				183AF4EE1B9133C900292936 /* LaunchScreen.xib in Resources */,
+				183AF51E1B91376100292936 /* CIKeyboard.png in Resources */,
+				183AF51C1B91376100292936 /* CIEmotion.png in Resources */,
+				183AF51D1B91376100292936 /* CIVoice.png in Resources */,
+				183AF5081B91344800292936 /* CIDetailController.xib in Resources */,
+				183AF5121B91355600292936 /* CIDetailCell.xib in Resources */,
+				183AF5171B9136E100292936 /* InputBar.xib in Resources */,
 				183AF4EB1B9133C900292936 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,8 +286,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				183AF5151B9136D300292936 /* InputBar.m in Sources */,
 				183AF4E61B9133C900292936 /* ViewController.m in Sources */,
 				183AF4E31B9133C900292936 /* AppDelegate.m in Sources */,
+				183AF5071B91344800292936 /* CIDetailController.m in Sources */,
+				183AF5111B91355600292936 /* CIDetailCell.m in Sources */,
 				183AF4E01B9133C900292936 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

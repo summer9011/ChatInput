@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 
+#import "CIDetailController.h"
+
 @interface ViewController ()
 
 @end
@@ -22,6 +24,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)goToChat:(id)sender {
+    CIDetailController *chatDetail = [[CIDetailController alloc] initWithNibName:@"CIDetailController" bundle:nil];
+    
+    [self.navigationController pushViewController:chatDetail animated:YES];
 }
 
 @end

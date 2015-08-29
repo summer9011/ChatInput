@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="InputBar">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eCh-GS-HXm" userLabel="Voice">
+                    <rect key="frame" x="8" y="5" width="35" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="eCh-GS-HXm" secondAttribute="height" multiplier="1:1" id="WbT-Fp-sYV"/>
+                        <constraint firstAttribute="width" constant="35" id="oto-3s-Bhf"/>
+                    </constraints>
+                    <state key="normal" image="CIVoice.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" image="CIKeyboard.png"/>
+                    <connections>
+                        <action selector="changeMode:" destination="iN0-l3-epB" eventType="touchUpInside" id="esh-L5-8iK"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PoD-qo-rwf" userLabel="Another">
+                    <rect key="frame" x="557" y="5" width="35" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="35" id="Jad-t7-sAa"/>
+                        <constraint firstAttribute="width" secondItem="PoD-qo-rwf" secondAttribute="height" multiplier="1:1" id="dKV-Vq-XVC"/>
+                    </constraints>
+                    <state key="normal" image="CIAnother.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="changeMode:" destination="iN0-l3-epB" eventType="touchUpInside" id="Vl4-pz-tqV"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FiN-8T-hxL" userLabel="Emotion">
+                    <rect key="frame" x="518" y="5" width="35" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="FiN-8T-hxL" secondAttribute="height" multiplier="1:1" id="8k5-fO-pcF"/>
+                        <constraint firstAttribute="width" constant="35" id="tT3-fH-S1Z"/>
+                    </constraints>
+                    <state key="normal" image="CIEmotion.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="changeMode:" destination="iN0-l3-epB" eventType="touchUpInside" id="A4D-nT-OgZ"/>
+                    </connections>
+                </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jur-Bz-fEM">
+                    <rect key="frame" x="51" y="8" width="459" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="wL0-jg-pgJ"/>
+                    </connections>
+                </textField>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GAa-F0-XZ6">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="1"/>
+                    <color key="backgroundColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="WSv-cb-9zR"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vvL-7R-Gd2">
+                    <rect key="frame" x="0.0" y="43" width="600" height="1"/>
+                    <color key="backgroundColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="IWZ-vm-y1C"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="PoD-qo-rwf" firstAttribute="leading" secondItem="FiN-8T-hxL" secondAttribute="trailing" constant="4" id="0L8-0g-Agc"/>
+                <constraint firstItem="eCh-GS-HXm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="0Xa-Wa-vtu"/>
+                <constraint firstItem="GAa-F0-XZ6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="A2o-Nk-O61"/>
+                <constraint firstAttribute="trailing" secondItem="PoD-qo-rwf" secondAttribute="trailing" constant="8" id="D3i-Qr-cEY"/>
+                <constraint firstAttribute="trailing" secondItem="vvL-7R-Gd2" secondAttribute="trailing" id="Upw-9v-Xcv"/>
+                <constraint firstItem="FiN-8T-hxL" firstAttribute="centerY" secondItem="eCh-GS-HXm" secondAttribute="centerY" id="UxO-nx-21V"/>
+                <constraint firstItem="eCh-GS-HXm" firstAttribute="centerY" secondItem="PoD-qo-rwf" secondAttribute="centerY" id="VcU-JU-siP"/>
+                <constraint firstItem="GAa-F0-XZ6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Wez-iA-yB9"/>
+                <constraint firstItem="vvL-7R-Gd2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="aYp-Sq-RVW"/>
+                <constraint firstItem="jur-Bz-fEM" firstAttribute="leading" secondItem="eCh-GS-HXm" secondAttribute="trailing" constant="8" id="bLZ-Ma-tHP"/>
+                <constraint firstAttribute="bottom" secondItem="vvL-7R-Gd2" secondAttribute="bottom" id="eC9-KE-DeF"/>
+                <constraint firstItem="FiN-8T-hxL" firstAttribute="leading" secondItem="jur-Bz-fEM" secondAttribute="trailing" constant="8" id="k0f-1P-AGI"/>
+                <constraint firstAttribute="bottom" secondItem="jur-Bz-fEM" secondAttribute="bottom" constant="6" id="vff-W6-7kU"/>
+                <constraint firstAttribute="bottom" secondItem="eCh-GS-HXm" secondAttribute="bottom" constant="4" id="xI9-VN-f6b"/>
+                <constraint firstAttribute="trailing" secondItem="GAa-F0-XZ6" secondAttribute="trailing" id="yE2-B0-r5x"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="anotherBtn" destination="PoD-qo-rwf" id="dO0-VY-XUB"/>
+                <outlet property="emotionBtn" destination="FiN-8T-hxL" id="bRH-dh-vgA"/>
+                <outlet property="inputModeBtn" destination="eCh-GS-HXm" id="Xop-pA-MxN"/>
+                <outlet property="textField" destination="jur-Bz-fEM" id="mSe-P7-S6O"/>
+            </connections>
+            <point key="canvasLocation" x="565" y="213.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="CIAnother.png" width="70" height="70"/>
+        <image name="CIEmotion.png" width="70" height="70"/>
+        <image name="CIKeyboard.png" width="70" height="70"/>
+        <image name="CIVoice.png" width="70" height="70"/>
+    </resources>
+</document>
