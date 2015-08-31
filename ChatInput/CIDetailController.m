@@ -9,6 +9,8 @@
 #import "CIDetailController.h"
 #import "CIDetailCell.h"
 
+#import "Constants.h"
+
 #import "InputBar.h"
 #import "EmotionView.h"
 #import "AnotherView.h"
@@ -23,6 +25,7 @@
 
 @property (nonatomic, strong) EmotionView *emotionView;
 @property (nonatomic, strong) NSLayoutConstraint *emotionViewBottom;
+@property (nonatomic, strong) NSArray *emotionItems;
 
 @property (nonatomic, strong) AnotherView *anotherView;
 @property (nonatomic, strong) NSLayoutConstraint *anotherViewBottom;
@@ -67,7 +70,7 @@ static NSString *CellIdentifier = @"CIDetailCell";
     [self.view addSubview:self.inputBar];
     
     NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:self.inputBar attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.f constant:size.width];
-    NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:self.inputBar attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.f constant:44.f];
+    NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:self.inputBar attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.f constant:CIInputBarHeight];
     [self.inputBar addConstraints:@[width, height]];
     
     NSLayoutConstraint *leading = [NSLayoutConstraint constraintWithItem:self.inputBar attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1.f constant:0.f];
@@ -85,12 +88,21 @@ static NSString *CellIdentifier = @"CIDetailCell";
     [self.view addSubview:self.emotionView];
     
     NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:self.emotionView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.f constant:size.width];
-    NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:self.emotionView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.f constant:258.f];
+    NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:self.emotionView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.f constant:CIEmotionViewHeight];
     [self.emotionView addConstraints:@[width, height]];
     
     NSLayoutConstraint *leading = [NSLayoutConstraint constraintWithItem:self.emotionView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1.f constant:0.f];
-    self.emotionViewBottom = [NSLayoutConstraint constraintWithItem:self.emotionView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.f constant:258.f];
+    self.emotionViewBottom = [NSLayoutConstraint constraintWithItem:self.emotionView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.f constant:CIEmotionViewHeight];
     [self.view addConstraints:@[leading, self.emotionViewBottom]];
+    
+    self.emotionItems = @[
+                          @{
+                              @"title": @"expression",
+                              @"imageName": @"Expression_list.tiff"
+                              }
+                          ];
+    
+    [self.emotionView addItems:self.emotionItems];
 }
 
 - (void)initAnotherView {
@@ -104,11 +116,11 @@ static NSString *CellIdentifier = @"CIDetailCell";
     [self.view addSubview:self.anotherView];
     
     NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:self.anotherView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.f constant:size.width];
-    NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:self.anotherView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.f constant:258.f];
+    NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:self.anotherView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.f constant:CIAnotherViewHeight];
     [self.anotherView addConstraints:@[width, height]];
     
     NSLayoutConstraint *leading = [NSLayoutConstraint constraintWithItem:self.anotherView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1.f constant:0.f];
-    self.anotherViewBottom = [NSLayoutConstraint constraintWithItem:self.anotherView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.f constant:258.f];
+    self.anotherViewBottom = [NSLayoutConstraint constraintWithItem:self.anotherView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.f constant:CIAnotherViewHeight];
     [self.view addConstraints:@[leading, self.anotherViewBottom]];
     
     //设置AnotherView中的内容
@@ -182,7 +194,7 @@ static NSString *CellIdentifier = @"CIDetailCell";
     
     self.inputBarBottom.constant = 0.f;
     
-    [self didChooseTextField];
+    [self didChooseTextView];
     [self resetTableViewFrame:YES];
 }
 
@@ -226,7 +238,7 @@ static NSString *CellIdentifier = @"CIDetailCell";
     [alert show];
 }
 
-- (void)didChooseTextField {
+- (void)didChooseTextView {
     self.inputBar.emotionBtn.selected = NO;
     self.inputBar.anotherBtn.selected = NO;
     
@@ -264,7 +276,7 @@ static NSString *CellIdentifier = @"CIDetailCell";
             
             self.inputBarBottom.constant = 0.f;
             
-            [self didChooseTextField];
+            [self didChooseTextView];
             [self resetTableViewFrame:YES];
         }
             break;

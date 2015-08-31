@@ -28,4 +28,10 @@
  */
 @property (nonatomic, assign) BOOL isShow;
 
+/**
+ *  添加表情
+ *  @param items 表情列表数据
+ */
+- (void)addItems:(NSArray *)items;
+
 @end

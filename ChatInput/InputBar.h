@@ -28,7 +28,7 @@ typedef NS_ENUM(NSUInteger, InputMode){
 /**
  *  点击TextFiled
  */
-- (void)didChooseTextField;
+- (void)didChooseTextView;
 
 /**
  *  开始录音
@@ -71,7 +71,7 @@ typedef NS_ENUM(NSUInteger, InputMode){
 @property (weak, nonatomic) IBOutlet UIButton *inputModeBtn;
 @property (weak, nonatomic) IBOutlet UIButton *anotherBtn;
 @property (weak, nonatomic) IBOutlet UIButton *emotionBtn;
-@property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UIButton *voiceBtn;
 
 @property (nonatomic, weak) id<InputBarDelegate> inputDelegate;

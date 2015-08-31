@@ -7,8 +7,9 @@
 //
 
 #import "InputBar.h"
+#import "Constants.h"
 
-@interface InputBar () <UITextFieldDelegate>
+@interface InputBar () <UITextViewDelegate>
 
 @end
 
@@ -19,13 +20,19 @@
     
     self.translatesAutoresizingMaskIntoConstraints = NO;
     
-    self.textField.delegate = self;
+    self.textView.delegate = self;
+    self.textView.layer.masksToBounds = YES;
+    self.textView.layer.cornerRadius = 5.f;
+    self.textView.layer.borderColor = [UIColor colorWithRed:200/255.f green:200/255.f blue:200/255.f alpha:1.f].CGColor;
+    self.textView.layer.borderWidth = 0.5;
     
     self.voiceBtn.layer.masksToBounds = YES;
     self.voiceBtn.layer.cornerRadius = 5.f;
     self.voiceBtn.layer.borderColor = [UIColor colorWithRed:200/255.f green:200/255.f blue:200/255.f alpha:1.f].CGColor;
     self.voiceBtn.layer.borderWidth = 0.5;
 }
+
+#pragma mark - IBAction
 
 - (IBAction)changeMode:(id)sender {
     UIButton *button = (UIButton *)sender;
@@ -40,6 +47,8 @@
                 self.voiceBtn.hidden = YES;
             }];
             
+            [self textViewDidChange:self.textView];
+            
             [self.inputDelegate inputBar:self didSelectedMode:InputTextMode];
         } else {
             button.selected = YES;
@@ -48,6 +57,8 @@
             [UIView animateWithDuration:0.3 animations:^{
                 self.voiceBtn.alpha = 1.f;
             }];
+            
+            [self resetViewHeight:CIInputBarHeight];
             
             [self.inputDelegate inputBar:self didSelectedMode:InputVoiceMode];
         }
@@ -104,11 +115,11 @@
 #pragma mark - Public Method
 
 - (void)beginEditing {
-    [self.textField becomeFirstResponder];
+    [self.textView becomeFirstResponder];
 }
 
 - (void)endEditing {
-    [self.textField resignFirstResponder];
+    [self.textView resignFirstResponder];
 }
 
 - (void)showVoiceInput {
@@ -130,21 +141,48 @@
     }];
 }
 
-#pragma mark - UITextFieldDelegate
+#pragma mark - Private Method
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField {
-    [self.inputDelegate didChooseTextField];
-}
-
-- (void)textFieldDidEndEditing:(UITextField *)textField {
+- (void)resetViewHeight:(CGFloat)height {
+    for (NSLayoutConstraint *constraint in self.constraints) {
+        if (constraint.firstAttribute == NSLayoutAttributeHeight) {
+            constraint.constant = height;
+            break;
+        }
+    }
     
+    [UIView animateWithDuration:0.3 animations:^{
+        [self layoutIfNeeded];
+    }];
+    
+    [self.textView setContentOffset:CGPointZero animated:YES];
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [self.inputDelegate didSendMessage:textField.text];
-    textField.text = nil;
+#pragma mark - UITextViewDelegate
+
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    [self.inputDelegate didChooseTextView];
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    
+    if ([text isEqualToString:@"\n"]) {
+        [self.inputDelegate didSendMessage:textView.text];
+        textView.text = nil;
+        
+        [self resetViewHeight:CIInputBarHeight];
+        
+        return NO;
+    }
     
     return YES;
+}
+
+- (void)textViewDidChange:(UITextView *)textView {
+    CGFloat height = CIInputBarHeight - CIInputTextViewHeight + textView.contentSize.height;
+    [self resetViewHeight:height];
+    
+    NSLog(@"frame %@, contentSize %@", NSStringFromCGSize(self.textView.frame.size), NSStringFromCGSize(self.textView.contentSize));
 }
 
 @end
