@@ -8,15 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@class EmotionBtnView;
+@class CIEmotionBtnView;
 
 @protocol EmotionBtnDelegate <NSObject>
 
-- (void)didChooseEmotion:(EmotionBtnView *)emtionBtnView index:(NSUInteger)index;
+- (void)didChooseEmotion:(CIEmotionBtnView *)emtionBtnView index:(NSUInteger)index;
 
 @end
 
-@interface EmotionBtnView : UIView
+@interface CIEmotionBtnView : UIView
 
 @property (nonatomic, weak) id<EmotionBtnDelegate> emotionBtnDelegate;
 

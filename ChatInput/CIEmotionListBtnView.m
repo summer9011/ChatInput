@@ -6,10 +6,10 @@
 //  Copyright (c) 2015年 apple. All rights reserved.
 //
 
-#import "EmotionListBtnView.h"
-#import "Constants.h"
+#import "CIEmotionListBtnView.h"
+#import "CIConstants.h"
 
-@implementation EmotionListBtnView
+@implementation CIEmotionListBtnView
 
 - (void)awakeFromNib {
     [super awakeFromNib];

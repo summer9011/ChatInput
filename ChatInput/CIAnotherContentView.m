@@ -6,14 +6,14 @@
 //  Copyright (c) 2015年 apple. All rights reserved.
 //
 
-#import "AnotherContentView.h"
-#import "Constants.h"
+#import "CIAnotherContentView.h"
+#import "CIConstants.h"
 
-@interface AnotherContentView ()
+@interface CIAnotherContentView ()
 
 @end
 
-@implementation AnotherContentView
+@implementation CIAnotherContentView
 
 - (void)awakeFromNib {
     [super awakeFromNib];

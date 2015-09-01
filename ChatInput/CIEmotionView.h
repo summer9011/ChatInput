@@ -34,7 +34,7 @@ typedef NS_ENUM(NSUInteger, EmotionType){
 
 @end
 
-@interface EmotionView : UIView
+@interface CIEmotionView : UIView
 
 @property (nonatomic, weak) id<EmotionViewDelegate> emotionViewDelegate;
 

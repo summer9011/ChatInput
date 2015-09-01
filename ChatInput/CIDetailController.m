@@ -9,25 +9,25 @@
 #import "CIDetailController.h"
 #import "CIDetailCell.h"
 
-#import "Constants.h"
+#import "CIConstants.h"
 
-#import "InputBar.h"
-#import "EmotionView.h"
-#import "AnotherView.h"
+#import "CIInputBar.h"
+#import "CIEmotionView.h"
+#import "CIAnotherView.h"
 
 @interface CIDetailController () <InputBarDelegate, EmotionViewDelegate, AnotherViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *chatDetail;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *chatDetailBottom;
 
-@property (nonatomic, strong) InputBar *inputBar;
+@property (nonatomic, strong) CIInputBar *inputBar;
 @property (nonatomic, strong) NSLayoutConstraint *inputBarBottom;
 
-@property (nonatomic, strong) EmotionView *emotionView;
+@property (nonatomic, strong) CIEmotionView *emotionView;
 @property (nonatomic, strong) NSLayoutConstraint *emotionViewBottom;
 @property (nonatomic, strong) NSArray *emotionItems;
 
-@property (nonatomic, strong) AnotherView *anotherView;
+@property (nonatomic, strong) CIAnotherView *anotherView;
 @property (nonatomic, strong) NSLayoutConstraint *anotherViewBottom;
 @property (nonatomic, strong) NSArray *anotherItems;
 
@@ -63,7 +63,7 @@ static NSString *CellIdentifier = @"CIDetailCell";
     CGSize size = [UIScreen mainScreen].bounds.size;
     
     //InputBar
-    NSArray *nibViews = [[NSBundle mainBundle] loadNibNamed:@"InputBar" owner:@"InputBar" options:nil];
+    NSArray *nibViews = [[NSBundle mainBundle] loadNibNamed:@"CIInputBar" owner:@"CIInputBar" options:nil];
     self.inputBar = nibViews[0];
     self.inputBar.inputDelegate = self;
     
@@ -82,7 +82,7 @@ static NSString *CellIdentifier = @"CIDetailCell";
     CGSize size = [UIScreen mainScreen].bounds.size;
     
     //emotionView
-    NSArray *nibViews = [[NSBundle mainBundle] loadNibNamed:@"EmotionView" owner:@"EmotionView" options:nil];
+    NSArray *nibViews = [[NSBundle mainBundle] loadNibNamed:@"CIEmotionView" owner:@"CIEmotionView" options:nil];
     self.emotionView = nibViews[0];
     self.emotionView.emotionViewDelegate = self;
     
@@ -110,7 +110,7 @@ static NSString *CellIdentifier = @"CIDetailCell";
     CGSize size = [UIScreen mainScreen].bounds.size;
     
     //anotherView
-    NSArray *nibViews = [[NSBundle mainBundle] loadNibNamed:@"AnotherView" owner:@"AnotherView" options:nil];
+    NSArray *nibViews = [[NSBundle mainBundle] loadNibNamed:@"CIAnotherView" owner:@"CIAnotherView" options:nil];
     self.anotherView = nibViews[0];
     self.anotherView.anotherViewDelegate = self;
     
@@ -274,7 +274,7 @@ static NSString *CellIdentifier = @"CIDetailCell";
     self.navigationItem.title = @"取消录音";
 }
 
-- (void)inputBar:(InputBar *)inputBar didSelectedMode:(InputMode)inputMode {
+- (void)inputBar:(CIInputBar *)inputBar didSelectedMode:(InputMode)inputMode {
     switch (inputMode) {
         case InputTextMode: {
             [self.inputBar beginEditing];
@@ -331,7 +331,7 @@ static NSString *CellIdentifier = @"CIDetailCell";
     }
 }
 
-- (void)inputBar:(InputBar *)inputBar didUnSelectedMode:(InputMode)inputMode {
+- (void)inputBar:(CIInputBar *)inputBar didUnSelectedMode:(InputMode)inputMode {
     switch (inputMode) {
         case InputEmotionMode: {
             if (self.emotionView.isShow) {

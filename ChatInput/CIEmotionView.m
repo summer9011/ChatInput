@@ -6,13 +6,13 @@
 //  Copyright (c) 2015年 apple. All rights reserved.
 //
 
-#import "EmotionView.h"
-#import "EmotionListBtnView.h"
-#import "EmotionBtnView.h"
+#import "CIEmotionView.h"
+#import "CIEmotionListBtnView.h"
+#import "CIEmotionBtnView.h"
 
-#import "Constants.h"
+#import "CIConstants.h"
 
-@interface EmotionView () <UIScrollViewDelegate, EmotionListBtnDelegate, EmotionBtnDelegate>
+@interface CIEmotionView () <UIScrollViewDelegate, EmotionListBtnDelegate, EmotionBtnDelegate>
 
 @property (nonatomic, assign) CGFloat viewWidth;
 @property (nonatomic, assign) CGFloat viewHeight;
@@ -27,7 +27,7 @@
 
 @end
 
-@implementation EmotionView
+@implementation CIEmotionView
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -78,9 +78,9 @@
             
             //同步主线程
             dispatch_async(dispatch_get_main_queue(), ^{
-                NSArray *nibViews = [[NSBundle mainBundle] loadNibNamed:@"EmotionListBtnView" owner:@"EmotionListBtnView" options:nil];
+                NSArray *nibViews = [[NSBundle mainBundle] loadNibNamed:@"CIEmotionListBtnView" owner:@"CIEmotionListBtnView" options:nil];
                 
-                EmotionListBtnView *listBtn = nibViews[0];
+                CIEmotionListBtnView *listBtn = nibViews[0];
                 listBtn.tag = i + 1;
                 listBtn.btnImageView.image = [UIImage imageNamed:item[@"imageName"]];
                 listBtn.listBtnDelegate = self;
@@ -140,8 +140,8 @@
                     NSString *expressionPath = [NSString stringWithFormat:@"Expression_%ld.tiff", j];
                     
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        NSArray *nibViews = [[NSBundle mainBundle] loadNibNamed:@"EmotionBtnView" owner:@"EmotionBtnView" options:nil];
-                        EmotionBtnView *emotionBtn = nibViews[0];
+                        NSArray *nibViews = [[NSBundle mainBundle] loadNibNamed:@"CIEmotionBtnView" owner:@"CIEmotionBtnView" options:nil];
+                        CIEmotionBtnView *emotionBtn = nibViews[0];
                         emotionBtn.tag = tag + 10;
                         emotionBtn.emotionBtnDelegate = self;
                         
@@ -211,8 +211,8 @@
 
 #pragma mark - EmotionListBtnDelegate
 
-- (void)didSelectEmotionListBtnView:(EmotionListBtnView *)listBtnView {
-    for (EmotionListBtnView *tmpListBtnView in self.emotionListScrollView.subviews) {
+- (void)didSelectEmotionListBtnView:(CIEmotionListBtnView *)listBtnView {
+    for (CIEmotionListBtnView *tmpListBtnView in self.emotionListScrollView.subviews) {
         if (![tmpListBtnView isEqual:listBtnView]) {
             tmpListBtnView.backgroundColor = InputBarHightlightBackgroundColor;
         }
@@ -226,7 +226,7 @@
 
 #pragma mark - EmotionBtnDelegate
 
-- (void)didChooseEmotion:(EmotionBtnView *)emtionBtnView index:(NSUInteger)index {
+- (void)didChooseEmotion:(CIEmotionBtnView *)emtionBtnView index:(NSUInteger)index {
     if (self.currentTypeIndex == 0) {           //expression
         NSDictionary *item = self.items[self.currentTypeIndex];
         NSString *resourcePath = [[NSBundle mainBundle] pathForResource:item[@"title"] ofType:@"plist"];

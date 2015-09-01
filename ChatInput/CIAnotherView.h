@@ -14,7 +14,7 @@
 
 @end
 
-@interface AnotherView : UIView
+@interface CIAnotherView : UIView
 
 @property (nonatomic, weak) id<AnotherViewDelegate> anotherViewDelegate;
 

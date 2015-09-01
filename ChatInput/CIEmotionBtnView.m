@@ -7,9 +7,9 @@
 //  Copyright (c) 2015年 apple. All rights reserved.
 //
 
-#import "EmotionBtnView.h"
+#import "CIEmotionBtnView.h"
 
-@implementation EmotionBtnView
+@implementation CIEmotionBtnView
 
 - (void)awakeFromNib {
     [super awakeFromNib];

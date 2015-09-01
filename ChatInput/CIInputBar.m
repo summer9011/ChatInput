@@ -6,14 +6,14 @@
 //  Copyright (c) 2015年 apple. All rights reserved.
 //
 
-#import "InputBar.h"
-#import "Constants.h"
+#import "CIInputBar.h"
+#import "CIConstants.h"
 
-@interface InputBar () <UITextViewDelegate>
+@interface CIInputBar () <UITextViewDelegate>
 
 @end
 
-@implementation InputBar
+@implementation CIInputBar
 
 - (void)awakeFromNib {
     [super awakeFromNib];

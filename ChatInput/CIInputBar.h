@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class InputBar;
+@class CIInputBar;
 
 typedef NS_ENUM(NSUInteger, InputMode){
     InputTextMode,              //输入文字
@@ -67,18 +67,18 @@ typedef NS_ENUM(NSUInteger, InputMode){
  *  @param inputBar 当前InputBar对象
  *  @param inputMode 模式
  */
-- (void)inputBar:(InputBar *)inputBar didSelectedMode:(InputMode)inputMode;
+- (void)inputBar:(CIInputBar *)inputBar didSelectedMode:(InputMode)inputMode;
 
 /**
  *  取消选择其中一个输入模式
  *  @param inputBar 当前InputBar对象
  *  @param inputMode 模式
  */
-- (void)inputBar:(InputBar *)inputBar didUnSelectedMode:(InputMode)inputMode;
+- (void)inputBar:(CIInputBar *)inputBar didUnSelectedMode:(InputMode)inputMode;
 
 @end
 
-@interface InputBar : UIView
+@interface CIInputBar : UIView
 
 @property (weak, nonatomic) IBOutlet UIButton *inputModeBtn;
 @property (weak, nonatomic) IBOutlet UIButton *anotherBtn;

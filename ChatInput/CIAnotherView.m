@@ -6,10 +6,10 @@
 //  Copyright (c) 2015年 apple. All rights reserved.
 //
 
-#import "AnotherView.h"
-#import "AnotherContentView.h"
+#import "CIAnotherView.h"
+#import "CIAnotherContentView.h"
 
-@interface AnotherView () <UIScrollViewDelegate>
+@interface CIAnotherView () <UIScrollViewDelegate>
 
 @property (nonatomic, assign) CGFloat viewWidth;
 @property (nonatomic, assign) CGFloat viewHeight;
@@ -19,7 +19,7 @@
 
 @end
 
-@implementation AnotherView
+@implementation CIAnotherView
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -57,8 +57,8 @@
         NSUInteger perOffsetY = i/col;
         NSUInteger pageLocation = i/(col * row);
         
-        NSArray *nibViews = [[NSBundle mainBundle] loadNibNamed:@"AnotherContentView" owner:@"AnotherContentView" options:nil];
-        AnotherContentView *itemView = nibViews[0];
+        NSArray *nibViews = [[NSBundle mainBundle] loadNibNamed:@"CIAnotherContentView" owner:@"CIAnotherContentView" options:nil];
+        CIAnotherContentView *itemView = nibViews[0];
         itemView.tag = i+1;
         
         [self.scrollView addSubview:itemView];

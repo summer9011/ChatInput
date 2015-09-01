@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AnotherContentView : UIView
+@interface CIAnotherContentView : UIView
 
 @property (weak, nonatomic) IBOutlet UIImageView *contentImageView;
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
