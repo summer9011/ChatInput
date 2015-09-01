@@ -20,5 +20,4 @@
 - (IBAction)didChooseEmotion:(id)sender {
     [self.emotionBtnDelegate didChooseEmotion:self index:self.tag - 10];
 }
-
 @end

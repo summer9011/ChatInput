@@ -15,7 +15,7 @@
 #import "CIEmotionView.h"
 #import "CIAnotherView.h"
 
-@interface CIDetailController () <InputBarDelegate, EmotionViewDelegate, AnotherViewDelegate>
+@interface CIDetailController () <CIInputBarDelegate, CIEmotionViewDelegate, CIAnotherViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *chatDetail;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *chatDetailBottom;
@@ -43,6 +43,57 @@ static NSString *CellIdentifier = @"CIDetailCell";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
     
     [self.chatDetail registerNib:[UINib nibWithNibName:CellIdentifier bundle:nil] forCellReuseIdentifier:CellIdentifier];
+    
+    self.emotionItems = @[
+                          @{
+                              @"title": @"expression",
+                              @"imageName": @"Expression_list.tiff"
+                              }
+                          ];
+    
+    //设置AnotherView中的内容
+    self.anotherItems = @[
+                          @{
+                              @"title": @"照片",
+                              @"imageName": @"CIAnotherContent1"
+                              },
+                          @{
+                              @"title": @"拍摄",
+                              @"imageName": @"CIAnotherContent2"
+                              },
+                          @{
+                              @"title": @"小视频",
+                              @"imageName": @"CIAnotherContent3"
+                              },
+                          @{
+                              @"title": @"视频聊天",
+                              @"imageName": @"CIAnotherContent4"
+                              },
+                          @{
+                              @"title": @"红包",
+                              @"imageName": @"CIAnotherContent1"
+                              },
+                          @{
+                              @"title": @"转账",
+                              @"imageName": @"CIAnotherContent2"
+                              },
+                          @{
+                              @"title": @"位置",
+                              @"imageName": @"CIAnotherContent3"
+                              },
+                          @{
+                              @"title": @"收藏",
+                              @"imageName": @"CIAnotherContent4"
+                              },
+                          @{
+                              @"title": @"个人名片",
+                              @"imageName": @"CIAnotherContent1"
+                              },
+                          @{
+                              @"title": @"实时对讲机",
+                              @"imageName": @"CIAnotherContent2"
+                              }
+                          ];
     
     [self initInputBar];
     [self initEmotionView];
@@ -96,13 +147,6 @@ static NSString *CellIdentifier = @"CIDetailCell";
     self.emotionViewBottom = [NSLayoutConstraint constraintWithItem:self.emotionView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.f constant:CIEmotionViewHeight];
     [self.view addConstraints:@[leading, self.emotionViewBottom]];
     
-    self.emotionItems = @[
-                          @{
-                              @"title": @"expression",
-                              @"imageName": @"Expression_list.tiff"
-                              }
-                          ];
-    
     [self.emotionView addItems:self.emotionItems];
 }
 
@@ -123,50 +167,6 @@ static NSString *CellIdentifier = @"CIDetailCell";
     NSLayoutConstraint *leading = [NSLayoutConstraint constraintWithItem:self.anotherView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1.f constant:0.f];
     self.anotherViewBottom = [NSLayoutConstraint constraintWithItem:self.anotherView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.f constant:CIAnotherViewHeight];
     [self.view addConstraints:@[leading, self.anotherViewBottom]];
-    
-    //设置AnotherView中的内容
-    self.anotherItems = @[
-                          @{
-                              @"title": @"照片",
-                              @"imageName": @"CIAnotherContent1"
-                              },
-                          @{
-                              @"title": @"拍摄",
-                              @"imageName": @"CIAnotherContent2"
-                              },
-                          @{
-                              @"title": @"小视频",
-                              @"imageName": @"CIAnotherContent3"
-                              },
-                          @{
-                              @"title": @"视频聊天",
-                              @"imageName": @"CIAnotherContent4"
-                              },
-                          @{
-                              @"title": @"红包",
-                              @"imageName": @"CIAnotherContent1"
-                              },
-                          @{
-                              @"title": @"转账",
-                              @"imageName": @"CIAnotherContent2"
-                              },
-                          @{
-                              @"title": @"位置",
-                              @"imageName": @"CIAnotherContent3"
-                              },
-                          @{
-                              @"title": @"收藏",
-                              @"imageName": @"CIAnotherContent4"
-                              },
-                          @{
-                              @"title": @"个人名片",
-                              @"imageName": @"CIAnotherContent1"
-                              },
-                          @{
-                              @"title": @"实时对讲机",
-                              @"imageName": @"CIAnotherContent2"
-                              }
-                          ];
     
     //1,2; 2,4; 3,6
     [self.anotherView addItems:self.anotherItems row:2 col:4];
@@ -232,7 +232,7 @@ static NSString *CellIdentifier = @"CIDetailCell";
     [self resetTableViewFrame:animation];
 }
 
-#pragma mark - InputBarDelegate
+#pragma mark - CIInputBarDelegate
 
 - (void)didSendMessage:(NSString *)message {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"发送文字" message:message delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil, nil];
@@ -362,7 +362,7 @@ static NSString *CellIdentifier = @"CIDetailCell";
     }
 }
 
-#pragma mark - EmotionViewDelegate
+#pragma mark - CIEmotionViewDelegate
 
 - (void)didChoosedEmotion:(NSString *)emotionKey type:(EmotionType)emotionType {
     switch (emotionType) {
@@ -385,7 +385,7 @@ static NSString *CellIdentifier = @"CIDetailCell";
     [self.inputBar sendMessage];
 }
 
-#pragma mark - AnotherViewDelegate
+#pragma mark - CIAnotherViewDelegate
 
 - (void)didChooseItem:(NSUInteger)index {
     NSDictionary *item = self.anotherItems[index];

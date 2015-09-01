@@ -17,7 +17,7 @@ typedef NS_ENUM(NSUInteger, InputMode){
     InputAnotherMode            //发送其他内容
 };
 
-@protocol InputBarDelegate <NSObject>
+@protocol CIInputBarDelegate <NSObject>
 
 /**
  *  文字编辑完成
@@ -86,7 +86,7 @@ typedef NS_ENUM(NSUInteger, InputMode){
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UIButton *voiceBtn;
 
-@property (nonatomic, weak) id<InputBarDelegate> inputDelegate;
+@property (nonatomic, weak) id<CIInputBarDelegate> inputDelegate;
 
 /**
  *  TextField becomeFirstResponder

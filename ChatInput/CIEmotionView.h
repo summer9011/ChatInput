@@ -13,7 +13,7 @@ typedef NS_ENUM(NSUInteger, EmotionType){
     EmotionCustomType
 };
 
-@protocol EmotionViewDelegate <NSObject>
+@protocol CIEmotionViewDelegate <NSObject>
 
 /**
  *  选中了某个表情
@@ -36,7 +36,7 @@ typedef NS_ENUM(NSUInteger, EmotionType){
 
 @interface CIEmotionView : UIView
 
-@property (nonatomic, weak) id<EmotionViewDelegate> emotionViewDelegate;
+@property (nonatomic, weak) id<CIEmotionViewDelegate> emotionViewDelegate;
 
 /**
  *  View是否显示

@@ -10,7 +10,7 @@
 
 @class CIEmotionListBtnView;
 
-@protocol EmotionListBtnDelegate <NSObject>
+@protocol CIEmotionListBtnDelegate <NSObject>
 
 - (void)didSelectEmotionListBtnView:(CIEmotionListBtnView *)listBtnView;
 
@@ -18,7 +18,7 @@
 
 @interface CIEmotionListBtnView : UIView
 
-@property (nonatomic, weak) id<EmotionListBtnDelegate> listBtnDelegate;
+@property (nonatomic, weak) id<CIEmotionListBtnDelegate> listBtnDelegate;
 
 @property (weak, nonatomic) IBOutlet UIImageView *btnImageView;
 @property (weak, nonatomic) IBOutlet UIButton *listBtn;

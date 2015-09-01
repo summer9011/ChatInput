@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol AnotherViewDelegate <NSObject>
+@protocol CIAnotherViewDelegate <NSObject>
 
 - (void)didChooseItem:(NSUInteger)index;
 
@@ -16,7 +16,7 @@
 
 @interface CIAnotherView : UIView
 
-@property (nonatomic, weak) id<AnotherViewDelegate> anotherViewDelegate;
+@property (nonatomic, weak) id<CIAnotherViewDelegate> anotherViewDelegate;
 
 /**
  *  View是否显示

@@ -12,7 +12,7 @@
 
 #import "CIConstants.h"
 
-@interface CIEmotionView () <UIScrollViewDelegate, EmotionListBtnDelegate, EmotionBtnDelegate>
+@interface CIEmotionView () <UIScrollViewDelegate, CIEmotionListBtnDelegate, CIEmotionBtnDelegate>
 
 @property (nonatomic, assign) CGFloat viewWidth;
 @property (nonatomic, assign) CGFloat viewHeight;
@@ -37,6 +37,10 @@
     
     self.emotionContentScrollView.delegate = self;
     
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
+    longPress.minimumPressDuration = 1.f;
+    [self.emotionContentScrollView addGestureRecognizer:longPress];
+    
     self.sendEmotionBtn.layer.masksToBounds = YES;
     self.sendEmotionBtn.layer.cornerRadius = 5.f;
     self.sendEmotionBtn.layer.borderColor = BackgroundColor.CGColor;
@@ -44,6 +48,12 @@
     self.sendEmotionBtn.enabled = NO;
     
     self.emotionListScrollView.contentSize = CGSizeMake(1000, 20);
+}
+
+#pragma mark - GestureRecognizer 
+
+- (void)handleLongPress:(UILongPressGestureRecognizer *)recognizer {
+    NSLog(@"%@", recognizer.view);
 }
 
 #pragma mark - Public Method
@@ -139,6 +149,15 @@
                     
                     NSString *expressionPath = [NSString stringWithFormat:@"Expression_%ld.tiff", j];
                     
+                    //获取到表情的Key
+                    NSString *emotionKeyStr;
+                    for (NSString *emotionKey in expressionDic) {
+                        if ([expressionDic[emotionKey] isEqualToString:expressionPath]) {
+                            emotionKeyStr = emotionKey;
+                            break;
+                        }
+                    }
+                    
                     dispatch_async(dispatch_get_main_queue(), ^{
                         NSArray *nibViews = [[NSBundle mainBundle] loadNibNamed:@"CIEmotionBtnView" owner:@"CIEmotionBtnView" options:nil];
                         CIEmotionBtnView *emotionBtn = nibViews[0];
@@ -146,8 +165,10 @@
                         emotionBtn.emotionBtnDelegate = self;
                         
                         if (tag%(col * row) == 0 || tag == (expressionDic.count + page)) {
+                            emotionBtn.emotionKey = nil;
                             emotionBtn.emotionImageView.image = [UIImage imageNamed:@"Expression_delete"];
                         } else {
+                            emotionBtn.emotionKey = emotionKeyStr;
                             emotionBtn.emotionImageView.image = [UIImage imageNamed:expressionPath];
                         }
                         
@@ -209,7 +230,7 @@
     }
 }
 
-#pragma mark - EmotionListBtnDelegate
+#pragma mark - CIEmotionListBtnDelegate
 
 - (void)didSelectEmotionListBtnView:(CIEmotionListBtnView *)listBtnView {
     for (CIEmotionListBtnView *tmpListBtnView in self.emotionListScrollView.subviews) {
@@ -224,30 +245,14 @@
     self.currentTypeIndex = typeIndex;
 }
 
-#pragma mark - EmotionBtnDelegate
+#pragma mark - CIEmotionBtnDelegate
 
 - (void)didChooseEmotion:(CIEmotionBtnView *)emtionBtnView index:(NSUInteger)index {
     if (self.currentTypeIndex == 0) {           //expression
-        NSDictionary *item = self.items[self.currentTypeIndex];
-        NSString *resourcePath = [[NSBundle mainBundle] pathForResource:item[@"title"] ofType:@"plist"];
-        NSDictionary *expressionDic = [[NSDictionary alloc] initWithContentsOfFile:resourcePath];
-        
-        CGFloat page = ceilf(expressionDic.count/24.f);
-        
-        if (index%24 == 0 || index == expressionDic.count + page) {
+        if (emtionBtnView.emotionKey == nil) {
             [self.emotionViewDelegate didDeleteEmotion];
         } else {
-            CGFloat tmp = floorf(index/24.f);
-            
-            NSString *emotionKeyStr;
-            for (NSString *emotionKey in expressionDic) {
-                if ([expressionDic[emotionKey] isEqualToString:[NSString stringWithFormat:@"Expression_%ld.tiff", index - (NSUInteger)tmp]]) {
-                    emotionKeyStr = emotionKey;
-                    break;
-                }
-            }
-            
-            [self.emotionViewDelegate didChoosedEmotion:emotionKeyStr type:EmotionExpressionType];
+            [self.emotionViewDelegate didChoosedEmotion:emtionBtnView.emotionKey type:EmotionExpressionType];
         }
     } else {
         [self.emotionViewDelegate didChoosedEmotion:@"" type:EmotionCustomType];
