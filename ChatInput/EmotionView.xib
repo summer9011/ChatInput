@@ -39,6 +39,9 @@
                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="clickOnSendBtn:" destination="iN0-l3-epB" eventType="touchUpInside" id="U5X-f7-Ltb"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>

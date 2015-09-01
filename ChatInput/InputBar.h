@@ -31,6 +31,12 @@ typedef NS_ENUM(NSUInteger, InputMode){
 - (void)didChooseTextView;
 
 /**
+ *  改变输入框高度
+ *  @param height 输入框高度
+ */
+- (void)willChangeTextViewHeight:(CGFloat)height;
+
+/**
  *  TextView中是否存在文字
  *  @param isExsit 是否存在
  */
@@ -112,5 +118,10 @@ typedef NS_ENUM(NSUInteger, InputMode){
  *  删除TextView文字
  */
 - (void)deleteText;
+
+/**
+ *  发送TextView里的文字
+ */
+- (void)sendMessage;
 
 @end

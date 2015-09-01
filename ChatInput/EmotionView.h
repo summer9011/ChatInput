@@ -27,6 +27,11 @@ typedef NS_ENUM(NSUInteger, EmotionType){
  */
 - (void)didDeleteEmotion;
 
+/**
+ *  发送文字消息
+ */
+- (void)didEmotionSendMessage;
+
 @end
 
 @interface EmotionView : UIView

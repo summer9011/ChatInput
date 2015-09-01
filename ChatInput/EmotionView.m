@@ -193,6 +193,12 @@
     }
 }
 
+#pragma mark - IBAction
+
+- (IBAction)clickOnSendBtn:(id)sender {
+    [self.emotionViewDelegate didEmotionSendMessage];
+}
+
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {

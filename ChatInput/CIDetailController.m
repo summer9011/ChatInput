@@ -250,6 +250,10 @@ static NSString *CellIdentifier = @"CIDetailCell";
     self.anotherView.isShow = NO;
 }
 
+- (void)willChangeTextViewHeight:(CGFloat)height {
+    [self resetTableViewFrame:YES];
+}
+
 - (void)textView:(BOOL)isExsit {
     [self.emotionView emotionSendBtnEnable:isExsit];
 }
@@ -375,6 +379,10 @@ static NSString *CellIdentifier = @"CIDetailCell";
 
 - (void)didDeleteEmotion {
     [self.inputBar deleteText];
+}
+
+- (void)didEmotionSendMessage {
+    [self.inputBar sendMessage];
 }
 
 #pragma mark - AnotherViewDelegate

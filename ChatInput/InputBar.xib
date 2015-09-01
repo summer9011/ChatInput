@@ -47,6 +47,7 @@
                     <state key="normal" image="CIEmotion.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <state key="selected" image="CIKeyboard.png"/>
                     <connections>
                         <action selector="changeMode:" destination="iN0-l3-epB" eventType="touchUpInside" id="A4D-nT-OgZ"/>
                     </connections>

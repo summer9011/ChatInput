@@ -152,6 +152,7 @@
     // 将调整后的字符串添加到UITextView上面
     self.textView.text = result;
     
+    [self.textView layoutIfNeeded];
     [self textViewDidChange:self.textView];
     
     [self.inputDelegate textView:YES];
@@ -178,10 +179,19 @@
         }
         
         self.textView.text = [self.textView.text substringWithRange:range];
+        [self.textView layoutIfNeeded];
+        
         [self textViewDidChange:self.textView];
     } else {
         [self.inputDelegate textView:NO];
     }
+}
+
+- (void)sendMessage {
+    [self.inputDelegate didSendMessage:self.textView.text];
+    self.textView.text = nil;
+    
+    [self resetViewHeight:CIInputBarHeight];
 }
 
 #pragma mark - Private Method
@@ -189,16 +199,22 @@
 - (void)resetViewHeight:(CGFloat)height {
     for (NSLayoutConstraint *constraint in self.constraints) {
         if (constraint.firstAttribute == NSLayoutAttributeHeight) {
-            constraint.constant = height;
+            if (constraint.constant != height) {
+                constraint.constant = height;
+                
+                [UIView animateWithDuration:0.3 animations:^{
+                    [self layoutIfNeeded];
+                }];
+                
+                [self.textView setContentOffset:CGPointZero animated:YES];
+                
+                [self.inputDelegate willChangeTextViewHeight:height];
+            }
+            
             break;
         }
     }
     
-    [UIView animateWithDuration:0.3 animations:^{
-        [self layoutIfNeeded];
-    }];
-    
-    [self.textView setContentOffset:CGPointZero animated:YES];
 }
 
 #pragma mark - UITextViewDelegate
