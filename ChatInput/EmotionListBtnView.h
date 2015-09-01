@@ -8,6 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@class EmotionListBtnView;
+
+@protocol EmotionListBtnDelegate <NSObject>
+
+- (void)didSelectEmotionListBtnView:(EmotionListBtnView *)listBtnView;
+
+@end
+
 @interface EmotionListBtnView : UIView
+
+@property (nonatomic, weak) id<EmotionListBtnDelegate> listBtnDelegate;
+
+@property (weak, nonatomic) IBOutlet UIImageView *btnImageView;
+@property (weak, nonatomic) IBOutlet UIButton *listBtn;
 
 @end

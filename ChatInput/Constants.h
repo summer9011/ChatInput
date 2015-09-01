@@ -14,4 +14,10 @@
 #define CIEmotionViewHeight 230.f
 #define CIAnotherViewHeight 230.f
 
+#define BackgroundColor [UIColor colorWithRed:200/255.f green:200/255.f blue:200/255.f alpha:1.f]
+#define EmotionViewBackgroundColor [UIColor colorWithRed:240/255.f green:240/255.f blue:240/255.f alpha:1.f]
+
+#define InputBarNormalBackgroundColor [UIColor colorWithRed:220/255.f green:220/255.f blue:220/255.f alpha:1.f]
+#define InputBarHightlightBackgroundColor [UIColor colorWithRed:248/255.f green:248/255.f blue:248/255.f alpha:1.f]
+
 #endif

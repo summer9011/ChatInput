@@ -26,9 +26,15 @@ typedef NS_ENUM(NSUInteger, InputMode){
 - (void)didSendMessage:(NSString *)message;
 
 /**
- *  点击TextFiled
+ *  点击TextView
  */
 - (void)didChooseTextView;
+
+/**
+ *  TextView中是否存在文字
+ *  @param isExsit 是否存在
+ */
+- (void)textView:(BOOL)isExsit;
 
 /**
  *  开始录音
@@ -95,5 +101,16 @@ typedef NS_ENUM(NSUInteger, InputMode){
  *  隐藏录音按钮
  */
 - (void)hideVoiceInput;
+
+/**
+ *  设置TextView输入内容
+ *  @param text 内容
+ */
+- (void)setText:(NSString *)text;
+
+/**
+ *  删除TextView文字
+ */
+- (void)deleteText;
 
 @end

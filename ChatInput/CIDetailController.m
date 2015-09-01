@@ -84,6 +84,7 @@ static NSString *CellIdentifier = @"CIDetailCell";
     //emotionView
     NSArray *nibViews = [[NSBundle mainBundle] loadNibNamed:@"EmotionView" owner:@"EmotionView" options:nil];
     self.emotionView = nibViews[0];
+    self.emotionView.emotionViewDelegate = self;
     
     [self.view addSubview:self.emotionView];
     
@@ -249,6 +250,10 @@ static NSString *CellIdentifier = @"CIDetailCell";
     self.anotherView.isShow = NO;
 }
 
+- (void)textView:(BOOL)isExsit {
+    [self.emotionView emotionSendBtnEnable:isExsit];
+}
+
 - (void)didStartVoice {
     self.navigationItem.title = @"开始录音";
 }
@@ -355,8 +360,21 @@ static NSString *CellIdentifier = @"CIDetailCell";
 
 #pragma mark - EmotionViewDelegate
 
-- (void)didChooseEmotion:(NSUInteger)typeIndex contentIndex:(NSUInteger)contentIndex {
-    NSLog(@"typeIndex %ld, contentIndex %ld", typeIndex, contentIndex);
+- (void)didChoosedEmotion:(NSString *)emotionKey type:(EmotionType)emotionType {
+    switch (emotionType) {
+        case EmotionExpressionType: {
+            [self.inputBar setText:emotionKey];
+        }
+            break;
+        case EmotionCustomType: {
+            
+        }
+            break;
+    }
+}
+
+- (void)didDeleteEmotion {
+    [self.inputBar deleteText];
 }
 
 #pragma mark - AnotherViewDelegate

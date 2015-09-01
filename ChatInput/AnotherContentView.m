@@ -7,6 +7,7 @@
 //
 
 #import "AnotherContentView.h"
+#import "Constants.h"
 
 @interface AnotherContentView ()
 
@@ -21,7 +22,7 @@
     
     self.contentImageView.layer.masksToBounds = YES;
     self.contentImageView.layer.cornerRadius = 5.f;
-    self.contentImageView.layer.borderColor = [UIColor colorWithRed:200/255.f green:200/255.f blue:200/255.f alpha:1.f].CGColor;
+    self.contentImageView.layer.borderColor = BackgroundColor.CGColor;
     self.contentImageView.layer.borderWidth = 0.5;
 }
 

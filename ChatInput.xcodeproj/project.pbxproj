@@ -138,6 +138,9 @@
 		18A62C441B9456AC00D04999 /* EmotionListBtnView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A62C431B9456AC00D04999 /* EmotionListBtnView.xib */; };
 		18A62C471B94573400D04999 /* Expression_list.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 18A62C451B94573400D04999 /* Expression_list.tiff */; };
 		18A62C481B94573400D04999 /* expression.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18A62C461B94573400D04999 /* expression.plist */; };
+		18A62C4B1B95365800D04999 /* EmotionBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A62C4A1B95365800D04999 /* EmotionBtnView.m */; };
+		18A62C4D1B95366700D04999 /* EmotionBtnView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A62C4C1B95366700D04999 /* EmotionBtnView.xib */; };
+		18A62C4F1B953E1100D04999 /* Expression_delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A62C4E1B953E1100D04999 /* Expression_delete.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -296,6 +299,10 @@
 		18A62C431B9456AC00D04999 /* EmotionListBtnView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmotionListBtnView.xib; sourceTree = "<group>"; };
 		18A62C451B94573400D04999 /* Expression_list.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Expression_list.tiff; sourceTree = "<group>"; };
 		18A62C461B94573400D04999 /* expression.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = expression.plist; sourceTree = "<group>"; };
+		18A62C491B95365800D04999 /* EmotionBtnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmotionBtnView.h; sourceTree = "<group>"; };
+		18A62C4A1B95365800D04999 /* EmotionBtnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmotionBtnView.m; sourceTree = "<group>"; };
+		18A62C4C1B95366700D04999 /* EmotionBtnView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmotionBtnView.xib; sourceTree = "<group>"; };
+		18A62C4E1B953E1100D04999 /* Expression_delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Expression_delete.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -532,6 +539,7 @@
 				18A62BC71B94372100D04999 /* Expression_99.tiff */,
 				18A62BC81B94372100D04999 /* Expression_100.tiff */,
 				18A62C451B94573400D04999 /* Expression_list.tiff */,
+				18A62C4E1B953E1100D04999 /* Expression_delete.png */,
 				18A62C461B94573400D04999 /* expression.plist */,
 			);
 			name = EmotionViewBtns;
@@ -559,6 +567,9 @@
 				18A62C401B94569800D04999 /* EmotionListBtnView.h */,
 				18A62C411B94569800D04999 /* EmotionListBtnView.m */,
 				18A62C431B9456AC00D04999 /* EmotionListBtnView.xib */,
+				18A62C491B95365800D04999 /* EmotionBtnView.h */,
+				18A62C4A1B95365800D04999 /* EmotionBtnView.m */,
+				18A62C4C1B95366700D04999 /* EmotionBtnView.xib */,
 			);
 			name = EmotionView;
 			sourceTree = "<group>";
@@ -705,6 +716,7 @@
 				18A62C081B94372100D04999 /* Expression_58.tiff in Resources */,
 				18A62BEA1B94372100D04999 /* Expression_28.tiff in Resources */,
 				18A62BFD1B94372100D04999 /* Expression_47.tiff in Resources */,
+				18A62C4D1B95366700D04999 /* EmotionBtnView.xib in Resources */,
 				18A62C141B94372100D04999 /* Expression_70.tiff in Resources */,
 				18A62BE41B94372100D04999 /* Expression_22.tiff in Resources */,
 				18A62C2C1B94372100D04999 /* Expression_94.tiff in Resources */,
@@ -744,6 +756,7 @@
 				18A62C2F1B94372100D04999 /* Expression_97.tiff in Resources */,
 				18A62BEC1B94372100D04999 /* Expression_30.tiff in Resources */,
 				18A62C281B94372100D04999 /* Expression_90.tiff in Resources */,
+				18A62C4F1B953E1100D04999 /* Expression_delete.png in Resources */,
 				18A62C321B94372100D04999 /* Expression_100.tiff in Resources */,
 				18A62C441B9456AC00D04999 /* EmotionListBtnView.xib in Resources */,
 				18A62C1C1B94372100D04999 /* Expression_78.tiff in Resources */,
@@ -788,6 +801,7 @@
 				183AF5291B91568A00292936 /* AnotherView.m in Sources */,
 				183AF5241B91473F00292936 /* EmotionView.m in Sources */,
 				183AF5111B91355600292936 /* CIDetailCell.m in Sources */,
+				18A62C4B1B95365800D04999 /* EmotionBtnView.m in Sources */,
 				183AF4E01B9133C900292936 /* main.m in Sources */,
 				18A62C421B94569800D04999 /* EmotionListBtnView.m in Sources */,
 			);

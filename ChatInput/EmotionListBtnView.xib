@@ -6,12 +6,50 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="EmotionListBtnView">
             <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wd2-xU-rIt">
+                    <rect key="frame" x="4" y="4" width="27" height="27"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eqT-Xc-ZYH">
+                    <rect key="frame" x="34" y="6" width="1" height="23"/>
+                    <color key="backgroundColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="1" id="nvF-ZX-kBn"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zaj-ms-LqM">
+                    <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="selectedListBtnView:" destination="iN0-l3-epB" eventType="touchUpInside" id="2nU-ne-WHr"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="wd2-xU-rIt" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="4" id="4Hj-M5-ybU"/>
+                <constraint firstItem="eqT-Xc-ZYH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="6" id="88w-o7-DGo"/>
+                <constraint firstAttribute="bottom" secondItem="wd2-xU-rIt" secondAttribute="bottom" constant="4" id="M6y-uO-Hcr"/>
+                <constraint firstItem="zaj-ms-LqM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="S8t-e8-80S"/>
+                <constraint firstAttribute="bottom" secondItem="eqT-Xc-ZYH" secondAttribute="bottom" constant="6" id="aij-gt-AC8"/>
+                <constraint firstItem="zaj-ms-LqM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="foh-g2-7Qb"/>
+                <constraint firstAttribute="trailing" secondItem="eqT-Xc-ZYH" secondAttribute="trailing" id="hRk-BY-r3J"/>
+                <constraint firstItem="wd2-xU-rIt" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="4" id="knP-Dd-6g1"/>
+                <constraint firstAttribute="bottom" secondItem="zaj-ms-LqM" secondAttribute="bottom" id="kxz-Cc-JGu"/>
+                <constraint firstAttribute="trailing" secondItem="zaj-ms-LqM" secondAttribute="trailing" id="mSQ-WX-LtN"/>
+                <constraint firstAttribute="trailing" secondItem="wd2-xU-rIt" secondAttribute="trailing" constant="4" id="yIP-Rk-uRJ"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="btnImageView" destination="wd2-xU-rIt" id="cvh-bv-yJe"/>
+                <outlet property="listBtn" destination="zaj-ms-LqM" id="3mj-LO-m3r"/>
+            </connections>
         </view>
     </objects>
 </document>

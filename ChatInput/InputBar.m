@@ -23,12 +23,12 @@
     self.textView.delegate = self;
     self.textView.layer.masksToBounds = YES;
     self.textView.layer.cornerRadius = 5.f;
-    self.textView.layer.borderColor = [UIColor colorWithRed:200/255.f green:200/255.f blue:200/255.f alpha:1.f].CGColor;
+    self.textView.layer.borderColor = BackgroundColor.CGColor;
     self.textView.layer.borderWidth = 0.5;
     
     self.voiceBtn.layer.masksToBounds = YES;
     self.voiceBtn.layer.cornerRadius = 5.f;
-    self.voiceBtn.layer.borderColor = [UIColor colorWithRed:200/255.f green:200/255.f blue:200/255.f alpha:1.f].CGColor;
+    self.voiceBtn.layer.borderColor = BackgroundColor.CGColor;
     self.voiceBtn.layer.borderWidth = 0.5;
 }
 
@@ -89,21 +89,21 @@
 
 - (IBAction)voiceDown:(id)sender {
     UIButton *button = (UIButton *)sender;
-    [button setBackgroundColor:[UIColor colorWithRed:220/255.f green:220/255.f blue:220/255.f alpha:1.f]];
+    [button setBackgroundColor:InputBarNormalBackgroundColor];
     
     [self.inputDelegate didStartVoice];
 }
 
 - (IBAction)voiceUp:(id)sender {
     UIButton *button = (UIButton *)sender;
-    [button setBackgroundColor:[UIColor colorWithRed:248/255.f green:248/255.f blue:248/255.f alpha:1.f]];
+    [button setBackgroundColor:InputBarHightlightBackgroundColor];
     
     [self.inputDelegate didFinishVoice];
 }
 
 - (IBAction)voiceDragOutside:(id)sender {
     UIButton *button = (UIButton *)sender;
-    [button setBackgroundColor:[UIColor colorWithRed:248/255.f green:248/255.f blue:248/255.f alpha:1.f]];
+    [button setBackgroundColor:InputBarHightlightBackgroundColor];
     
     [self.inputDelegate willCancelVoice];
 }
@@ -139,6 +139,49 @@
     } completion:^(BOOL finished) {
         self.voiceBtn.hidden = YES;
     }];
+}
+
+- (void)setText:(NSString *)text {
+    // 获得光标所在的位置
+    NSUInteger location = self.textView.selectedRange.location;
+    
+    // 将UITextView中的内容进行调整（主要是在光标所在的位置进行字符串截取，再拼接你需要插入的文字即可）
+    NSString *content = self.textView.text;
+    NSString *result = [NSString stringWithFormat:@"%@%@%@", [content substringToIndex:location], text, [content substringFromIndex:location]];
+    
+    // 将调整后的字符串添加到UITextView上面
+    self.textView.text = result;
+    
+    [self textViewDidChange:self.textView];
+    
+    [self.inputDelegate textView:YES];
+}
+
+- (void)deleteText {
+    if (![self.textView.text isEqualToString:@""]) {
+        NSRange range;
+        
+        if ([self.textView.text hasSuffix:@"]"]) {
+            NSError *error;
+            NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\[" options:NSRegularExpressionCaseInsensitive error:&error];
+            NSArray *resultArr = [regex matchesInString:self.textView.text options:NSMatchingReportProgress range:NSMakeRange(0, self.textView.text.length)];
+            
+            if (resultArr.count > 0) {
+                NSTextCheckingResult *result = resultArr.lastObject;
+                range = NSMakeRange(0, result.range.location);
+            } else {
+                range = NSMakeRange(0, self.textView.text.length - 1);
+            }
+            
+        } else {
+            range = NSMakeRange(0, self.textView.text.length - 1);
+        }
+        
+        self.textView.text = [self.textView.text substringWithRange:range];
+        [self textViewDidChange:self.textView];
+    } else {
+        [self.inputDelegate textView:NO];
+    }
 }
 
 #pragma mark - Private Method
@@ -182,7 +225,11 @@
     CGFloat height = CIInputBarHeight - CIInputTextViewHeight + textView.contentSize.height;
     [self resetViewHeight:height];
     
-    NSLog(@"frame %@, contentSize %@", NSStringFromCGSize(self.textView.frame.size), NSStringFromCGSize(self.textView.contentSize));
+    if ([textView.text isEqualToString:@""]) {
+        [self.inputDelegate textView:NO];
+    } else {
+        [self.inputDelegate textView:YES];
+    }
 }
 
 @end
