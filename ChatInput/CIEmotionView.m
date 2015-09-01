@@ -7,8 +7,10 @@
 //
 
 #import "CIEmotionView.h"
+
 #import "CIEmotionListBtnView.h"
 #import "CIEmotionBtnView.h"
+#import "CIEmotionAlertView.h"
 
 #import "CIConstants.h"
 
@@ -24,6 +26,10 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *emotionListScrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (weak, nonatomic) IBOutlet UIButton *sendEmotionBtn;
+
+@property (nonatomic, strong) CIEmotionAlertView *emotionAlertView;
+@property (nonatomic, strong) NSLayoutConstraint *emotionAlertLeading;
+@property (nonatomic, strong) NSLayoutConstraint *emotionAlertTop;
 
 @end
 
@@ -46,14 +52,52 @@
     self.sendEmotionBtn.layer.borderColor = BackgroundColor.CGColor;
     self.sendEmotionBtn.layer.borderWidth = 0.5;
     self.sendEmotionBtn.enabled = NO;
-    
-    self.emotionListScrollView.contentSize = CGSizeMake(1000, 20);
 }
 
 #pragma mark - GestureRecognizer 
 
 - (void)handleLongPress:(UILongPressGestureRecognizer *)recognizer {
-    NSLog(@"%@", recognizer.view);
+    CGPoint locationPoint = [recognizer locationInView:self.emotionContentScrollView];
+    
+    switch (recognizer.state) {
+        case UIGestureRecognizerStateBegan: {
+            NSLog(@"Began");
+            if (self.emotionAlertView == nil) {
+                NSArray *nibViews = [[NSBundle mainBundle] loadNibNamed:@"CIEmotionAlertView" owner:@"CIEmotionAlertView" options:nil];
+                self.emotionAlertView = nibViews[0];
+                
+                NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:self.emotionAlertView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.f constant:50.f];
+                NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:self.emotionAlertView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.f constant:100.f];
+            }
+            
+            for (CIEmotionBtnView *view in self.emotionContentScrollView.subviews) {
+                if (CGRectContainsPoint(view.frame, locationPoint)) {
+                    if (view.emotionKey != nil) {
+                        [self.emotionAlertView showEmotionAlertIn:self.emotionContentScrollView image:view.emotionImageView.image emotionKey:view.emotionKey];
+                    }
+                    
+                    break;
+                }
+            }
+        }
+            break;
+        case UIGestureRecognizerStateChanged: {
+            for (CIEmotionBtnView *view in self.emotionContentScrollView.subviews) {
+                if (CGRectContainsPoint(view.frame, locationPoint)) {
+                    if (view.emotionKey != nil) {
+                        [self.emotionAlertView showEmotionAlertIn:self.emotionContentScrollView image:view.emotionImageView.image emotionKey:view.emotionKey];
+                    }
+                    
+                    break;
+                }
+            }
+        }
+            break;
+        default: {
+            [self.emotionAlertView hidden];
+        }
+            break;
+    }
 }
 
 #pragma mark - Public Method

@@ -141,6 +141,8 @@
 		18A62C4B1B95365800D04999 /* CIEmotionBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A62C4A1B95365800D04999 /* CIEmotionBtnView.m */; };
 		18A62C4D1B95366700D04999 /* CIEmotionBtnView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A62C4C1B95366700D04999 /* CIEmotionBtnView.xib */; };
 		18A62C4F1B953E1100D04999 /* Expression_delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A62C4E1B953E1100D04999 /* Expression_delete.png */; };
+		18A62C531B959EA100D04999 /* CIEmotionAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A62C521B959EA100D04999 /* CIEmotionAlertView.m */; };
+		18A62C551B959EB600D04999 /* CIEmotionAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A62C541B959EB600D04999 /* CIEmotionAlertView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -303,6 +305,9 @@
 		18A62C4A1B95365800D04999 /* CIEmotionBtnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIEmotionBtnView.m; sourceTree = "<group>"; };
 		18A62C4C1B95366700D04999 /* CIEmotionBtnView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CIEmotionBtnView.xib; sourceTree = "<group>"; };
 		18A62C4E1B953E1100D04999 /* Expression_delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Expression_delete.png; sourceTree = "<group>"; };
+		18A62C511B959EA100D04999 /* CIEmotionAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIEmotionAlertView.h; sourceTree = "<group>"; };
+		18A62C521B959EA100D04999 /* CIEmotionAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIEmotionAlertView.m; sourceTree = "<group>"; };
+		18A62C541B959EB600D04999 /* CIEmotionAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CIEmotionAlertView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -401,6 +406,7 @@
 		183AF5201B91406B00292936 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				18A62C501B95955B00D04999 /* CustomEmotionBtns */,
 				18A62B641B94371400D04999 /* EmotionViewBtns */,
 				18A62B631B9436FC00D04999 /* AnotherViewBtns */,
 			);
@@ -570,8 +576,18 @@
 				18A62C491B95365800D04999 /* CIEmotionBtnView.h */,
 				18A62C4A1B95365800D04999 /* CIEmotionBtnView.m */,
 				18A62C4C1B95366700D04999 /* CIEmotionBtnView.xib */,
+				18A62C511B959EA100D04999 /* CIEmotionAlertView.h */,
+				18A62C521B959EA100D04999 /* CIEmotionAlertView.m */,
+				18A62C541B959EB600D04999 /* CIEmotionAlertView.xib */,
 			);
 			name = EmotionView;
+			sourceTree = "<group>";
+		};
+		18A62C501B95955B00D04999 /* CustomEmotionBtns */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = CustomEmotionBtns;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -657,6 +673,7 @@
 				18A62BCF1B94372100D04999 /* Expression_1.tiff in Resources */,
 				18A62C161B94372100D04999 /* Expression_72.tiff in Resources */,
 				18A62C471B94573400D04999 /* Expression_list.tiff in Resources */,
+				18A62C551B959EB600D04999 /* CIEmotionAlertView.xib in Resources */,
 				18A62C0D1B94372100D04999 /* Expression_63.tiff in Resources */,
 				18A62BF71B94372100D04999 /* Expression_41.tiff in Resources */,
 				18A62C0C1B94372100D04999 /* Expression_62.tiff in Resources */,
@@ -798,6 +815,7 @@
 				183AF52E1B917A6500292936 /* CIAnotherContentView.m in Sources */,
 				183AF4E31B9133C900292936 /* AppDelegate.m in Sources */,
 				183AF5071B91344800292936 /* CIDetailController.m in Sources */,
+				18A62C531B959EA100D04999 /* CIEmotionAlertView.m in Sources */,
 				183AF5291B91568A00292936 /* CIAnotherView.m in Sources */,
 				183AF5241B91473F00292936 /* CIEmotionView.m in Sources */,
 				183AF5111B91355600292936 /* CIDetailCell.m in Sources */,

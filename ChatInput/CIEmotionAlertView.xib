@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CIEmotionAlertView">
+            <rect key="frame" x="0.0" y="0.0" width="47" height="90"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pv5-r3-j42">
+                    <rect key="frame" x="0.0" y="0.0" width="47" height="90"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="974-vw-uIS">
+                    <rect key="frame" x="4" y="10" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="974-vw-uIS" secondAttribute="height" multiplier="1:1" id="hgU-ce-JSv"/>
+                        <constraint firstAttribute="width" constant="40" id="nAX-Gu-bKq"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rcn-ER-gJh">
+                    <rect key="frame" x="2" y="54" width="43" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="rcn-ER-gJh" firstAttribute="top" secondItem="974-vw-uIS" secondAttribute="bottom" constant="4" id="2rH-5w-YJX"/>
+                <constraint firstAttribute="trailing" secondItem="rcn-ER-gJh" secondAttribute="trailing" constant="2" id="F0d-z1-Duw"/>
+                <constraint firstItem="Pv5-r3-j42" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="K2o-pL-wRP"/>
+                <constraint firstItem="Pv5-r3-j42" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Kce-ZJ-kq3"/>
+                <constraint firstItem="974-vw-uIS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="Mfx-zA-Idq"/>
+                <constraint firstAttribute="trailing" secondItem="Pv5-r3-j42" secondAttribute="trailing" id="PEx-Pl-dR7"/>
+                <constraint firstItem="rcn-ER-gJh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="2" id="TUJ-to-mPf"/>
+                <constraint firstAttribute="centerX" secondItem="974-vw-uIS" secondAttribute="centerX" id="cox-Cf-HIi"/>
+                <constraint firstAttribute="bottom" secondItem="Pv5-r3-j42" secondAttribute="bottom" id="qdb-ho-xCH"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="backgroundImageView" destination="Pv5-r3-j42" id="tP8-rk-xMG"/>
+                <outlet property="bigEmotionImageView" destination="974-vw-uIS" id="YmF-oA-b5j"/>
+                <outlet property="emotionKeyLabel" destination="rcn-ER-gJh" id="oCw-4D-N6u"/>
+            </connections>
+            <point key="canvasLocation" x="91.5" y="120"/>
+        </view>
+    </objects>
+</document>
