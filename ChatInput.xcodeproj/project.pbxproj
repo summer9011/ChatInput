@@ -169,6 +169,7 @@
 		18A62D7A1B96D32C00D04999 /* SenderTextNodeBkg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A62D791B96D32C00D04999 /* SenderTextNodeBkg@2x.png */; };
 		18A62D7C1B96D37100D04999 /* ReceiverTextNodeBkg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A62D7B1B96D37100D04999 /* ReceiverTextNodeBkg@2x.png */; };
 		18A62D7E1B96F0BB00D04999 /* DefaultAvatar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A62D7D1B96F0BB00D04999 /* DefaultAvatar@2x.png */; };
+		18A62D801B96F54F00D04999 /* TimedOut@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A62D7F1B96F54F00D04999 /* TimedOut@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -368,6 +369,7 @@
 		18A62D791B96D32C00D04999 /* SenderTextNodeBkg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SenderTextNodeBkg@2x.png"; sourceTree = "<group>"; };
 		18A62D7B1B96D37100D04999 /* ReceiverTextNodeBkg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ReceiverTextNodeBkg@2x.png"; sourceTree = "<group>"; };
 		18A62D7D1B96F0BB00D04999 /* DefaultAvatar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DefaultAvatar@2x.png"; sourceTree = "<group>"; };
+		18A62D7F1B96F54F00D04999 /* TimedOut@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TimedOut@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -733,6 +735,7 @@
 		18A62D781B96D30E00D04999 /* MessageCells */ = {
 			isa = PBXGroup;
 			children = (
+				18A62D7F1B96F54F00D04999 /* TimedOut@2x.png */,
 				18A62D7D1B96F0BB00D04999 /* DefaultAvatar@2x.png */,
 				18A62D791B96D32C00D04999 /* SenderTextNodeBkg@2x.png */,
 				18A62D7B1B96D37100D04999 /* ReceiverTextNodeBkg@2x.png */,
@@ -906,6 +909,7 @@
 				18A62D3F1B968DB600D04999 /* CIAnotherContent5@2x.png in Resources */,
 				18A62CD01B96886800D04999 /* Expression_23@2x.png in Resources */,
 				18A62CD71B96886800D04999 /* Expression_30@2x.png in Resources */,
+				18A62D801B96F54F00D04999 /* TimedOut@2x.png in Resources */,
 				18A62CC01B96886800D04999 /* Expression_7@2x.png in Resources */,
 				18A62D7A1B96D32C00D04999 /* SenderTextNodeBkg@2x.png in Resources */,
 				18A62CE41B96886800D04999 /* Expression_43@2x.png in Resources */,

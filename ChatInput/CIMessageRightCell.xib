@@ -40,9 +40,13 @@
                             <constraint firstAttribute="height" constant="20" id="8V6-Vi-Sg1"/>
                         </constraints>
                     </activityIndicatorView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4KJ-Ld-m58" userLabel="ReSend">
-                        <rect key="frame" x="22" y="19" width="20" height="20"/>
-                        <state key="normal" title="Button">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4KJ-Ld-m58" userLabel="ReSend">
+                        <rect key="frame" x="19" y="16" width="26" height="26"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="26" id="mly-OC-VGA"/>
+                            <constraint firstAttribute="width" constant="26" id="uKm-R6-utN"/>
+                        </constraints>
+                        <state key="normal" image="TimedOut.png">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <connections>
@@ -52,17 +56,15 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="a32-gc-Ayu" firstAttribute="leading" secondItem="4KJ-Ld-m58" secondAttribute="leading" id="Cgf-yH-NMs"/>
-                    <constraint firstItem="a32-gc-Ayu" firstAttribute="bottom" secondItem="4KJ-Ld-m58" secondAttribute="bottom" id="CrO-rR-QFh"/>
                     <constraint firstItem="Uwr-bk-GFJ" firstAttribute="leading" secondItem="KSC-dF-RTV" secondAttribute="trailing" constant="4" id="JUj-FG-KG5"/>
-                    <constraint firstItem="a32-gc-Ayu" firstAttribute="trailing" secondItem="4KJ-Ld-m58" secondAttribute="trailing" id="UFK-ad-x7X"/>
                     <constraint firstItem="KSC-dF-RTV" firstAttribute="leading" secondItem="a32-gc-Ayu" secondAttribute="trailing" constant="8" id="Ul1-lJ-0IF"/>
                     <constraint firstItem="KSC-dF-RTV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="hZo-EQ-uHp"/>
                     <constraint firstAttribute="bottom" secondItem="KSC-dF-RTV" secondAttribute="bottom" constant="4" id="jhA-9y-4x0"/>
                     <constraint firstItem="Uwr-bk-GFJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="kEy-Cj-y03"/>
+                    <constraint firstItem="a32-gc-Ayu" firstAttribute="centerX" secondItem="4KJ-Ld-m58" secondAttribute="centerX" id="lrC-ao-nSt"/>
+                    <constraint firstItem="a32-gc-Ayu" firstAttribute="centerY" secondItem="4KJ-Ld-m58" secondAttribute="centerY" id="ooq-Jz-5ln"/>
                     <constraint firstAttribute="centerY" secondItem="a32-gc-Ayu" secondAttribute="centerY" id="ptf-nh-daW"/>
                     <constraint firstAttribute="trailing" secondItem="Uwr-bk-GFJ" secondAttribute="trailing" constant="8" id="yzC-Kd-BCp"/>
-                    <constraint firstItem="a32-gc-Ayu" firstAttribute="top" secondItem="4KJ-Ld-m58" secondAttribute="top" id="z5m-wA-d7R"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -79,5 +81,6 @@
     <resources>
         <image name="DefaultAvatar.png" width="40" height="40"/>
         <image name="SenderTextNodeBkg.png" width="62" height="49"/>
+        <image name="TimedOut.png" width="45" height="45"/>
     </resources>
 </document>
