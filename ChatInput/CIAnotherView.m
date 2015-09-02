@@ -74,7 +74,7 @@
         
         NSLayoutConstraint *leading = [NSLayoutConstraint constraintWithItem:itemView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.scrollView attribute:NSLayoutAttributeLeading multiplier:1.f constant:16 + pageLocation * self.viewWidth + perOffsetX * itemWidth];
         
-        NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:itemView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.scrollView attribute:NSLayoutAttributeTop multiplier:1.f constant: 16 + (perOffsetY - pageLocation * row) * itemHeight];
+        NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:itemView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.scrollView attribute:NSLayoutAttributeTop multiplier:1.f constant: 8 + (perOffsetY - pageLocation * row) * itemHeight];
         
         [self.scrollView addConstraints:@[leading, top]];
         

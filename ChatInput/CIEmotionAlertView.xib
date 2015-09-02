@@ -15,14 +15,14 @@
                     <rect key="frame" x="0.0" y="0.0" width="47" height="90"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="974-vw-uIS">
-                    <rect key="frame" x="4" y="10" width="40" height="40"/>
+                    <rect key="frame" x="4" y="4" width="40" height="40"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="974-vw-uIS" secondAttribute="height" multiplier="1:1" id="hgU-ce-JSv"/>
                         <constraint firstAttribute="width" constant="40" id="nAX-Gu-bKq"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rcn-ER-gJh">
-                    <rect key="frame" x="2" y="54" width="43" height="16"/>
+                    <rect key="frame" x="2" y="44" width="43" height="16"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -30,11 +30,11 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="rcn-ER-gJh" firstAttribute="top" secondItem="974-vw-uIS" secondAttribute="bottom" constant="4" id="2rH-5w-YJX"/>
+                <constraint firstItem="rcn-ER-gJh" firstAttribute="top" secondItem="974-vw-uIS" secondAttribute="bottom" id="2rH-5w-YJX"/>
                 <constraint firstAttribute="trailing" secondItem="rcn-ER-gJh" secondAttribute="trailing" constant="2" id="F0d-z1-Duw"/>
                 <constraint firstItem="Pv5-r3-j42" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="K2o-pL-wRP"/>
                 <constraint firstItem="Pv5-r3-j42" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Kce-ZJ-kq3"/>
-                <constraint firstItem="974-vw-uIS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="Mfx-zA-Idq"/>
+                <constraint firstItem="974-vw-uIS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="4" id="Mfx-zA-Idq"/>
                 <constraint firstAttribute="trailing" secondItem="Pv5-r3-j42" secondAttribute="trailing" id="PEx-Pl-dR7"/>
                 <constraint firstItem="rcn-ER-gJh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="2" id="TUJ-to-mPf"/>
                 <constraint firstAttribute="centerX" secondItem="974-vw-uIS" secondAttribute="centerX" id="cox-Cf-HIi"/>

@@ -47,7 +47,7 @@ static NSString *CellIdentifier = @"CIDetailCell";
     self.emotionItems = @[
                           @{
                               @"title": @"expression",
-                              @"imageName": @"Expression_list.tiff"
+                              @"imageName": @"EmotionsEmojiHL"
                               }
                           ];
     
@@ -71,27 +71,27 @@ static NSString *CellIdentifier = @"CIDetailCell";
                               },
                           @{
                               @"title": @"红包",
-                              @"imageName": @"CIAnotherContent1"
+                              @"imageName": @"CIAnotherContent5"
                               },
                           @{
                               @"title": @"转账",
-                              @"imageName": @"CIAnotherContent2"
+                              @"imageName": @"CIAnotherContent6"
                               },
                           @{
                               @"title": @"位置",
-                              @"imageName": @"CIAnotherContent3"
+                              @"imageName": @"CIAnotherContent7"
                               },
                           @{
                               @"title": @"收藏",
-                              @"imageName": @"CIAnotherContent4"
+                              @"imageName": @"CIAnotherContent8"
                               },
                           @{
                               @"title": @"个人名片",
-                              @"imageName": @"CIAnotherContent1"
+                              @"imageName": @"CIAnotherContent9"
                               },
                           @{
                               @"title": @"实时对讲机",
-                              @"imageName": @"CIAnotherContent2"
+                              @"imageName": @"CIAnotherContent10"
                               }
                           ];
     

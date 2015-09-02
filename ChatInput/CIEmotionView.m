@@ -28,8 +28,14 @@
 @property (weak, nonatomic) IBOutlet UIButton *sendEmotionBtn;
 
 @property (nonatomic, strong) CIEmotionAlertView *emotionAlertView;
+
 @property (nonatomic, strong) NSLayoutConstraint *emotionAlertLeading;
 @property (nonatomic, strong) NSLayoutConstraint *emotionAlertTop;
+
+@property (nonatomic, strong) NSLayoutConstraint *emotionAlertWidth;
+@property (nonatomic, strong) NSLayoutConstraint *emotionAlertHeight;
+
+@property (nonatomic, strong) CIEmotionBtnView *tmpEmotionBtn;
 
 @end
 
@@ -43,8 +49,8 @@
     
     self.emotionContentScrollView.delegate = self;
     
+    self.emotionContentScrollView.translatesAutoresizingMaskIntoConstraints = NO;
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
-    longPress.minimumPressDuration = 1.f;
     [self.emotionContentScrollView addGestureRecognizer:longPress];
     
     self.sendEmotionBtn.layer.masksToBounds = YES;
@@ -61,20 +67,35 @@
     
     switch (recognizer.state) {
         case UIGestureRecognizerStateBegan: {
-            NSLog(@"Began");
             if (self.emotionAlertView == nil) {
                 NSArray *nibViews = [[NSBundle mainBundle] loadNibNamed:@"CIEmotionAlertView" owner:@"CIEmotionAlertView" options:nil];
                 self.emotionAlertView = nibViews[0];
+                [self.emotionContentScrollView addSubview:self.emotionAlertView];
                 
-                NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:self.emotionAlertView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.f constant:50.f];
-                NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:self.emotionAlertView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.f constant:100.f];
+                self.emotionAlertWidth = [NSLayoutConstraint constraintWithItem:self.emotionAlertView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.f constant:46.f];
+                self.emotionAlertHeight = [NSLayoutConstraint constraintWithItem:self.emotionAlertView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.f constant:86.f];
+                
+                [self.emotionAlertView addConstraints:@[self.emotionAlertWidth, self.emotionAlertHeight]];
+                
+                self.emotionAlertLeading = [NSLayoutConstraint constraintWithItem:self.emotionAlertView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.emotionContentScrollView attribute:NSLayoutAttributeLeading multiplier:1.f constant:0.f];
+                self.emotionAlertTop = [NSLayoutConstraint constraintWithItem:self.emotionAlertView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.emotionContentScrollView attribute:NSLayoutAttributeTop multiplier:1.f constant:0.f];
+                
+                [self.emotionContentScrollView addConstraints:@[self.emotionAlertLeading, self.emotionAlertTop]];
             }
             
             for (CIEmotionBtnView *view in self.emotionContentScrollView.subviews) {
                 if (CGRectContainsPoint(view.frame, locationPoint)) {
                     if (view.emotionKey != nil) {
+                        self.emotionAlertLeading.constant = view.frame.origin.x + (CGRectGetWidth(view.frame) - self.emotionAlertWidth.constant)/2.f;
+                        self.emotionAlertTop.constant = view.frame.origin.y + CGRectGetHeight(view.frame) - self.emotionAlertHeight.constant - 10;
+                        [self layoutIfNeeded];
+                        
                         [self.emotionAlertView showEmotionAlertIn:self.emotionContentScrollView image:view.emotionImageView.image emotionKey:view.emotionKey];
+                    } else {
+                        [self.emotionAlertView hidden];
                     }
+                    
+                    self.tmpEmotionBtn = view;
                     
                     break;
                 }
@@ -85,8 +106,16 @@
             for (CIEmotionBtnView *view in self.emotionContentScrollView.subviews) {
                 if (CGRectContainsPoint(view.frame, locationPoint)) {
                     if (view.emotionKey != nil) {
+                        self.emotionAlertLeading.constant = view.frame.origin.x + (CGRectGetWidth(view.frame) - self.emotionAlertWidth.constant)/2.f;
+                        self.emotionAlertTop.constant = view.frame.origin.y + CGRectGetHeight(view.frame) - self.emotionAlertHeight.constant - 10;
+                        [self layoutIfNeeded];
+                        
                         [self.emotionAlertView showEmotionAlertIn:self.emotionContentScrollView image:view.emotionImageView.image emotionKey:view.emotionKey];
+                    } else {
+                        [self.emotionAlertView hidden];
                     }
+                    
+                    self.tmpEmotionBtn = view;
                     
                     break;
                 }
@@ -95,6 +124,9 @@
             break;
         default: {
             [self.emotionAlertView hidden];
+            
+            [self didChooseEmotion:self.tmpEmotionBtn index:0];
+            self.tmpEmotionBtn = nil;
         }
             break;
     }
@@ -191,7 +223,7 @@
                     NSUInteger perOffsetY = (tag - 1)/col;
                     NSUInteger pageLocation = (tag - 1)/(col * row);
                     
-                    NSString *expressionPath = [NSString stringWithFormat:@"Expression_%ld.tiff", j];
+                    NSString *expressionPath = [NSString stringWithFormat:@"Expression_%ld@2x.png", j];
                     
                     //获取到表情的Key
                     NSString *emotionKeyStr;
@@ -210,7 +242,7 @@
                         
                         if (tag%(col * row) == 0 || tag == (expressionDic.count + page)) {
                             emotionBtn.emotionKey = nil;
-                            emotionBtn.emotionImageView.image = [UIImage imageNamed:@"Expression_delete"];
+                            emotionBtn.emotionImageView.image = [UIImage imageNamed:@"DeleteEmoticonBtn"];
                         } else {
                             emotionBtn.emotionKey = emotionKeyStr;
                             emotionBtn.emotionImageView.image = [UIImage imageNamed:expressionPath];

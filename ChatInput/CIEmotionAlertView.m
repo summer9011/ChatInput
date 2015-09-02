@@ -25,8 +25,10 @@
 }
 
 - (void)showEmotionAlertIn:(UIView *)parentView image:(UIImage *)image emotionKey:(NSString *)emotionKey {
+    self.hidden = NO;
+    
     self.bigEmotionImageView.image = image;
-    self.emotionKeyLabel.text = emotionKey;
+    self.emotionKeyLabel.text = [emotionKey substringWithRange:NSMakeRange(1, emotionKey.length - 2)];
     
     if (![parentView.subviews containsObject:parentView]) {
         [parentView addSubview:self];
@@ -34,7 +36,7 @@
 }
 
 - (void)hidden {
-    [self removeFromSuperview];
+    self.hidden = YES;
 }
 
 @end
