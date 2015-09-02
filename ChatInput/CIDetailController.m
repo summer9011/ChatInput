@@ -7,7 +7,16 @@
 //
 
 #import "CIDetailController.h"
-#import "CIDetailCell.h"
+
+#import "CITimeCell.h"
+#import "CIMessageLeftCell.h"
+#import "CIMessageRightCell.h"
+#import "CIVocieLeftCell.h"
+#import "CIVoiceRightCell.h"
+#import "CIEmotionLeftCell.h"
+#import "CIEmotionRightCell.h"
+#import "CIImageLeftCell.h"
+#import "CIImageRightCell.h"
 
 #import "CIConstants.h"
 
@@ -33,7 +42,15 @@
 
 @end
 
-static NSString *CellIdentifier = @"CIDetailCell";
+static NSString *timeCellId = @"CITimeCell";
+static NSString *messageLeftCellId = @"CIMessageLeftCell";
+static NSString *messageRightCellId = @"CIMessageRightCell";
+static NSString *voiceLeftCellId = @"CIVoiceLeftCell";
+static NSString *voiceRightCellId = @"CIVoiceRightCell";
+static NSString *emotionLeftCellId = @"CIEmotionLeftCell";
+static NSString *emotionRightCellId = @"CIEmotionRightCell";
+static NSString *imageLeftCellId = @"CIImageLeftCell";
+static NSString *imageRightCellId = @"CIImageRightCell";
 
 @implementation CIDetailController
 
@@ -42,7 +59,15 @@ static NSString *CellIdentifier = @"CIDetailCell";
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
     
-    [self.chatDetail registerNib:[UINib nibWithNibName:CellIdentifier bundle:nil] forCellReuseIdentifier:CellIdentifier];
+    [self.chatDetail registerNib:[UINib nibWithNibName:timeCellId bundle:nil] forCellReuseIdentifier:timeCellId];
+    [self.chatDetail registerNib:[UINib nibWithNibName:messageLeftCellId bundle:nil] forCellReuseIdentifier:messageLeftCellId];
+    [self.chatDetail registerNib:[UINib nibWithNibName:messageRightCellId bundle:nil] forCellReuseIdentifier:messageRightCellId];
+    [self.chatDetail registerNib:[UINib nibWithNibName:voiceLeftCellId bundle:nil] forCellReuseIdentifier:voiceLeftCellId];
+    [self.chatDetail registerNib:[UINib nibWithNibName:voiceRightCellId bundle:nil] forCellReuseIdentifier:voiceRightCellId];
+    [self.chatDetail registerNib:[UINib nibWithNibName:emotionLeftCellId bundle:nil] forCellReuseIdentifier:emotionLeftCellId];
+    [self.chatDetail registerNib:[UINib nibWithNibName:emotionRightCellId bundle:nil] forCellReuseIdentifier:emotionRightCellId];
+    [self.chatDetail registerNib:[UINib nibWithNibName:imageLeftCellId bundle:nil] forCellReuseIdentifier:imageLeftCellId];
+    [self.chatDetail registerNib:[UINib nibWithNibName:imageRightCellId bundle:nil] forCellReuseIdentifier:imageRightCellId];
     
     self.emotionItems = @[
                           @{
@@ -178,16 +203,14 @@ static NSString *CellIdentifier = @"CIDetailCell";
     return 10;
 }
 
-- (CIDetailCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CIDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    cell.messageLabel.text = [NSString stringWithFormat:@"%ld", indexPath.row];
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    CIMessageLeftCell *cell = [tableView dequeueReusableCellWithIdentifier:messageLeftCellId forIndexPath:indexPath];
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 100;
+    return 80;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

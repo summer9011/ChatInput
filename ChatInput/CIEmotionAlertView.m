@@ -7,6 +7,7 @@
 //
 
 #import "CIEmotionAlertView.h"
+#import "CIConstants.h"
 
 @interface CIEmotionAlertView ()
 
@@ -20,6 +21,11 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
+    self.layer.masksToBounds = YES;
+    self.layer.cornerRadius = 10.f;
+    self.layer.borderWidth = 0.5;
+    self.layer.borderColor = BackgroundColor.CGColor;
     
     self.translatesAutoresizingMaskIntoConstraints = NO;
 }

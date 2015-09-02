@@ -16,8 +16,6 @@
 		183AF4FA1B9133C900292936 /* ChatInputTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AF4F91B9133C900292936 /* ChatInputTests.m */; };
 		183AF5071B91344800292936 /* CIDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AF5051B91344800292936 /* CIDetailController.m */; };
 		183AF5081B91344800292936 /* CIDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183AF5061B91344800292936 /* CIDetailController.xib */; };
-		183AF5111B91355600292936 /* CIDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AF50F1B91355600292936 /* CIDetailCell.m */; };
-		183AF5121B91355600292936 /* CIDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183AF5101B91355600292936 /* CIDetailCell.xib */; };
 		183AF5151B9136D300292936 /* CIInputBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AF5141B9136D300292936 /* CIInputBar.m */; };
 		183AF5171B9136E100292936 /* CIInputBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183AF5161B9136E100292936 /* CIInputBar.xib */; };
 		183AF5241B91473F00292936 /* CIEmotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AF5231B91473F00292936 /* CIEmotionView.m */; };
@@ -150,6 +148,24 @@
 		18A62D3C1B968C2000D04999 /* CIAnotherContent10@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A62D321B968C2000D04999 /* CIAnotherContent10@2x.png */; };
 		18A62D3D1B968C2000D04999 /* CIAnotherContent6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A62D331B968C2000D04999 /* CIAnotherContent6@2x.png */; };
 		18A62D3F1B968DB600D04999 /* CIAnotherContent5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A62D3E1B968DB600D04999 /* CIAnotherContent5@2x.png */; };
+		18A62D431B9693BE00D04999 /* CIMessageLeftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A62D411B9693BE00D04999 /* CIMessageLeftCell.m */; };
+		18A62D441B9693BE00D04999 /* CIMessageLeftCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A62D421B9693BE00D04999 /* CIMessageLeftCell.xib */; };
+		18A62D481B9693D400D04999 /* CIMessageRightCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A62D461B9693D400D04999 /* CIMessageRightCell.m */; };
+		18A62D491B9693D400D04999 /* CIMessageRightCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A62D471B9693D400D04999 /* CIMessageRightCell.xib */; };
+		18A62D4D1B96948200D04999 /* CIVocieLeftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A62D4B1B96948200D04999 /* CIVocieLeftCell.m */; };
+		18A62D4E1B96948200D04999 /* CIVocieLeftCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A62D4C1B96948200D04999 /* CIVocieLeftCell.xib */; };
+		18A62D521B96949300D04999 /* CIVoiceRightCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A62D501B96949300D04999 /* CIVoiceRightCell.m */; };
+		18A62D531B96949300D04999 /* CIVoiceRightCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A62D511B96949300D04999 /* CIVoiceRightCell.xib */; };
+		18A62D571B9694D200D04999 /* CITimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A62D551B9694D200D04999 /* CITimeCell.m */; };
+		18A62D581B9694D200D04999 /* CITimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A62D561B9694D200D04999 /* CITimeCell.xib */; };
+		18A62D621B96957E00D04999 /* CIEmotionLeftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A62D601B96957E00D04999 /* CIEmotionLeftCell.m */; };
+		18A62D631B96957E00D04999 /* CIEmotionLeftCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A62D611B96957E00D04999 /* CIEmotionLeftCell.xib */; };
+		18A62D671B96958C00D04999 /* CIEmotionRightCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A62D651B96958C00D04999 /* CIEmotionRightCell.m */; };
+		18A62D681B96958C00D04999 /* CIEmotionRightCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A62D661B96958C00D04999 /* CIEmotionRightCell.xib */; };
+		18A62D711B9695DF00D04999 /* CIImageLeftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A62D6F1B9695DF00D04999 /* CIImageLeftCell.m */; };
+		18A62D721B9695DF00D04999 /* CIImageLeftCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A62D701B9695DF00D04999 /* CIImageLeftCell.xib */; };
+		18A62D761B9695F000D04999 /* CIImageRightCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A62D741B9695F000D04999 /* CIImageRightCell.m */; };
+		18A62D771B9695F000D04999 /* CIImageRightCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A62D751B9695F000D04999 /* CIImageRightCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -179,9 +195,6 @@
 		183AF5041B91344800292936 /* CIDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIDetailController.h; sourceTree = "<group>"; };
 		183AF5051B91344800292936 /* CIDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIDetailController.m; sourceTree = "<group>"; };
 		183AF5061B91344800292936 /* CIDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CIDetailController.xib; sourceTree = "<group>"; };
-		183AF50E1B91355600292936 /* CIDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIDetailCell.h; sourceTree = "<group>"; };
-		183AF50F1B91355600292936 /* CIDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIDetailCell.m; sourceTree = "<group>"; };
-		183AF5101B91355600292936 /* CIDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CIDetailCell.xib; sourceTree = "<group>"; };
 		183AF5131B9136D300292936 /* CIInputBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIInputBar.h; sourceTree = "<group>"; };
 		183AF5141B9136D300292936 /* CIInputBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIInputBar.m; sourceTree = "<group>"; };
 		183AF5161B9136E100292936 /* CIInputBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CIInputBar.xib; sourceTree = "<group>"; };
@@ -322,6 +335,33 @@
 		18A62D321B968C2000D04999 /* CIAnotherContent10@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CIAnotherContent10@2x.png"; sourceTree = "<group>"; };
 		18A62D331B968C2000D04999 /* CIAnotherContent6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CIAnotherContent6@2x.png"; sourceTree = "<group>"; };
 		18A62D3E1B968DB600D04999 /* CIAnotherContent5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CIAnotherContent5@2x.png"; sourceTree = "<group>"; };
+		18A62D401B9693BE00D04999 /* CIMessageLeftCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIMessageLeftCell.h; sourceTree = "<group>"; };
+		18A62D411B9693BE00D04999 /* CIMessageLeftCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIMessageLeftCell.m; sourceTree = "<group>"; };
+		18A62D421B9693BE00D04999 /* CIMessageLeftCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CIMessageLeftCell.xib; sourceTree = "<group>"; };
+		18A62D451B9693D400D04999 /* CIMessageRightCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIMessageRightCell.h; sourceTree = "<group>"; };
+		18A62D461B9693D400D04999 /* CIMessageRightCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIMessageRightCell.m; sourceTree = "<group>"; };
+		18A62D471B9693D400D04999 /* CIMessageRightCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CIMessageRightCell.xib; sourceTree = "<group>"; };
+		18A62D4A1B96948200D04999 /* CIVocieLeftCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIVocieLeftCell.h; sourceTree = "<group>"; };
+		18A62D4B1B96948200D04999 /* CIVocieLeftCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIVocieLeftCell.m; sourceTree = "<group>"; };
+		18A62D4C1B96948200D04999 /* CIVocieLeftCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CIVocieLeftCell.xib; sourceTree = "<group>"; };
+		18A62D4F1B96949300D04999 /* CIVoiceRightCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIVoiceRightCell.h; sourceTree = "<group>"; };
+		18A62D501B96949300D04999 /* CIVoiceRightCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIVoiceRightCell.m; sourceTree = "<group>"; };
+		18A62D511B96949300D04999 /* CIVoiceRightCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CIVoiceRightCell.xib; sourceTree = "<group>"; };
+		18A62D541B9694D200D04999 /* CITimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CITimeCell.h; sourceTree = "<group>"; };
+		18A62D551B9694D200D04999 /* CITimeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CITimeCell.m; sourceTree = "<group>"; };
+		18A62D561B9694D200D04999 /* CITimeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CITimeCell.xib; sourceTree = "<group>"; };
+		18A62D5F1B96957E00D04999 /* CIEmotionLeftCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIEmotionLeftCell.h; sourceTree = "<group>"; };
+		18A62D601B96957E00D04999 /* CIEmotionLeftCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIEmotionLeftCell.m; sourceTree = "<group>"; };
+		18A62D611B96957E00D04999 /* CIEmotionLeftCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CIEmotionLeftCell.xib; sourceTree = "<group>"; };
+		18A62D641B96958C00D04999 /* CIEmotionRightCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIEmotionRightCell.h; sourceTree = "<group>"; };
+		18A62D651B96958C00D04999 /* CIEmotionRightCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIEmotionRightCell.m; sourceTree = "<group>"; };
+		18A62D661B96958C00D04999 /* CIEmotionRightCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CIEmotionRightCell.xib; sourceTree = "<group>"; };
+		18A62D6E1B9695DF00D04999 /* CIImageLeftCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIImageLeftCell.h; sourceTree = "<group>"; };
+		18A62D6F1B9695DF00D04999 /* CIImageLeftCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIImageLeftCell.m; sourceTree = "<group>"; };
+		18A62D701B9695DF00D04999 /* CIImageLeftCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CIImageLeftCell.xib; sourceTree = "<group>"; };
+		18A62D731B9695F000D04999 /* CIImageRightCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIImageRightCell.h; sourceTree = "<group>"; };
+		18A62D741B9695F000D04999 /* CIImageRightCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIImageRightCell.m; sourceTree = "<group>"; };
+		18A62D751B9695F000D04999 /* CIImageRightCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CIImageRightCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -408,9 +448,7 @@
 				183AF5041B91344800292936 /* CIDetailController.h */,
 				183AF5051B91344800292936 /* CIDetailController.m */,
 				183AF5061B91344800292936 /* CIDetailController.xib */,
-				183AF50E1B91355600292936 /* CIDetailCell.h */,
-				183AF50F1B91355600292936 /* CIDetailCell.m */,
-				183AF5101B91355600292936 /* CIDetailCell.xib */,
+				18A62D591B9694F100D04999 /* Cells */,
 				183AF5201B91406B00292936 /* Images */,
 				183AF5211B91407600292936 /* InputViews */,
 			);
@@ -611,6 +649,80 @@
 			name = CustomEmotionBtns;
 			sourceTree = "<group>";
 		};
+		18A62D591B9694F100D04999 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				18A62D5C1B96951E00D04999 /* TimeCells */,
+				18A62D5A1B96950000D04999 /* MessageCells */,
+				18A62D5B1B96950F00D04999 /* VoiceCells */,
+				18A62D5D1B96955A00D04999 /* EmotionCells */,
+				18A62D5E1B96956600D04999 /* ImageCells */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		18A62D5A1B96950000D04999 /* MessageCells */ = {
+			isa = PBXGroup;
+			children = (
+				18A62D401B9693BE00D04999 /* CIMessageLeftCell.h */,
+				18A62D411B9693BE00D04999 /* CIMessageLeftCell.m */,
+				18A62D421B9693BE00D04999 /* CIMessageLeftCell.xib */,
+				18A62D451B9693D400D04999 /* CIMessageRightCell.h */,
+				18A62D461B9693D400D04999 /* CIMessageRightCell.m */,
+				18A62D471B9693D400D04999 /* CIMessageRightCell.xib */,
+			);
+			name = MessageCells;
+			sourceTree = "<group>";
+		};
+		18A62D5B1B96950F00D04999 /* VoiceCells */ = {
+			isa = PBXGroup;
+			children = (
+				18A62D4A1B96948200D04999 /* CIVocieLeftCell.h */,
+				18A62D4B1B96948200D04999 /* CIVocieLeftCell.m */,
+				18A62D4C1B96948200D04999 /* CIVocieLeftCell.xib */,
+				18A62D4F1B96949300D04999 /* CIVoiceRightCell.h */,
+				18A62D501B96949300D04999 /* CIVoiceRightCell.m */,
+				18A62D511B96949300D04999 /* CIVoiceRightCell.xib */,
+			);
+			name = VoiceCells;
+			sourceTree = "<group>";
+		};
+		18A62D5C1B96951E00D04999 /* TimeCells */ = {
+			isa = PBXGroup;
+			children = (
+				18A62D541B9694D200D04999 /* CITimeCell.h */,
+				18A62D551B9694D200D04999 /* CITimeCell.m */,
+				18A62D561B9694D200D04999 /* CITimeCell.xib */,
+			);
+			name = TimeCells;
+			sourceTree = "<group>";
+		};
+		18A62D5D1B96955A00D04999 /* EmotionCells */ = {
+			isa = PBXGroup;
+			children = (
+				18A62D5F1B96957E00D04999 /* CIEmotionLeftCell.h */,
+				18A62D601B96957E00D04999 /* CIEmotionLeftCell.m */,
+				18A62D611B96957E00D04999 /* CIEmotionLeftCell.xib */,
+				18A62D641B96958C00D04999 /* CIEmotionRightCell.h */,
+				18A62D651B96958C00D04999 /* CIEmotionRightCell.m */,
+				18A62D661B96958C00D04999 /* CIEmotionRightCell.xib */,
+			);
+			name = EmotionCells;
+			sourceTree = "<group>";
+		};
+		18A62D5E1B96956600D04999 /* ImageCells */ = {
+			isa = PBXGroup;
+			children = (
+				18A62D6E1B9695DF00D04999 /* CIImageLeftCell.h */,
+				18A62D6F1B9695DF00D04999 /* CIImageLeftCell.m */,
+				18A62D701B9695DF00D04999 /* CIImageLeftCell.xib */,
+				18A62D731B9695F000D04999 /* CIImageRightCell.h */,
+				18A62D741B9695F000D04999 /* CIImageRightCell.m */,
+				18A62D751B9695F000D04999 /* CIImageRightCell.xib */,
+			);
+			name = ImageCells;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -695,11 +807,13 @@
 				18A62CBF1B96886800D04999 /* Expression_6@2x.png in Resources */,
 				18A62D1A1B96886800D04999 /* Expression_97@2x.png in Resources */,
 				18A62C551B959EB600D04999 /* CIEmotionAlertView.xib in Resources */,
+				18A62D771B9695F000D04999 /* CIImageRightCell.xib in Resources */,
 				18A62CC41B96886800D04999 /* Expression_11@2x.png in Resources */,
 				183AF52B1B91569A00292936 /* CIAnotherView.xib in Resources */,
 				18A62D251B968A7E00D04999 /* CIKeyboard@2x.png in Resources */,
 				18A62D341B968C2000D04999 /* CIAnotherContent9@2x.png in Resources */,
 				18A62CD31B96886800D04999 /* Expression_26@2x.png in Resources */,
+				18A62D581B9694D200D04999 /* CITimeCell.xib in Resources */,
 				18A62CDE1B96886800D04999 /* Expression_37@2x.png in Resources */,
 				18A62CBC1B96886800D04999 /* Expression_3@2x.png in Resources */,
 				18A62CFD1B96886800D04999 /* Expression_68@2x.png in Resources */,
@@ -736,6 +850,7 @@
 				18A62CDD1B96886800D04999 /* Expression_36@2x.png in Resources */,
 				18A62CF71B96886800D04999 /* Expression_62@2x.png in Resources */,
 				18A62CC71B96886800D04999 /* Expression_14@2x.png in Resources */,
+				18A62D681B96958C00D04999 /* CIEmotionRightCell.xib in Resources */,
 				18A62CEE1B96886800D04999 /* Expression_53@2x.png in Resources */,
 				18A62CF81B96886800D04999 /* Expression_63@2x.png in Resources */,
 				18A62CCB1B96886800D04999 /* Expression_18@2x.png in Resources */,
@@ -748,6 +863,7 @@
 				18A62CC61B96886800D04999 /* Expression_13@2x.png in Resources */,
 				18A62CD21B96886800D04999 /* Expression_25@2x.png in Resources */,
 				18A62D231B968A7700D04999 /* CIVoice@2x.png in Resources */,
+				18A62D631B96957E00D04999 /* CIEmotionLeftCell.xib in Resources */,
 				18A62CFF1B96886800D04999 /* Expression_70@2x.png in Resources */,
 				18A62CDF1B96886800D04999 /* Expression_38@2x.png in Resources */,
 				18A62D271B968A8600D04999 /* CIAnother@2x.png in Resources */,
@@ -756,6 +872,7 @@
 				18A62D041B96886800D04999 /* Expression_75@2x.png in Resources */,
 				18A62CE01B96886800D04999 /* Expression_39@2x.png in Resources */,
 				18A62CD81B96886800D04999 /* Expression_31@2x.png in Resources */,
+				18A62D721B9695DF00D04999 /* CIImageLeftCell.xib in Resources */,
 				18A62D191B96886800D04999 /* Expression_96@2x.png in Resources */,
 				18A62D211B96891A00D04999 /* CIEmotion@2x.png in Resources */,
 				18A62D381B968C2000D04999 /* CIAnotherContent3@2x.png in Resources */,
@@ -763,6 +880,7 @@
 				18A62CFA1B96886800D04999 /* Expression_65@2x.png in Resources */,
 				18A62CBE1B96886800D04999 /* Expression_5@2x.png in Resources */,
 				18A62D091B96886800D04999 /* Expression_80@2x.png in Resources */,
+				18A62D491B9693D400D04999 /* CIMessageRightCell.xib in Resources */,
 				18A62CF51B96886800D04999 /* Expression_60@2x.png in Resources */,
 				18A62CFB1B96886800D04999 /* Expression_66@2x.png in Resources */,
 				18A62CC81B96886800D04999 /* Expression_15@2x.png in Resources */,
@@ -777,6 +895,7 @@
 				18A62CE31B96886800D04999 /* Expression_42@2x.png in Resources */,
 				18A62D361B968C2000D04999 /* CIAnotherContent8@2x.png in Resources */,
 				18A62CEF1B96886800D04999 /* Expression_54@2x.png in Resources */,
+				18A62D4E1B96948200D04999 /* CIVocieLeftCell.xib in Resources */,
 				18A62C481B94573400D04999 /* expression.plist in Resources */,
 				18A62CD11B96886800D04999 /* Expression_24@2x.png in Resources */,
 				18A62CC11B96886800D04999 /* Expression_8@2x.png in Resources */,
@@ -786,6 +905,7 @@
 				18A62D021B96886800D04999 /* Expression_73@2x.png in Resources */,
 				18A62CBB1B96886800D04999 /* Expression_2@2x.png in Resources */,
 				18A62CF21B96886800D04999 /* Expression_57@2x.png in Resources */,
+				18A62D441B9693BE00D04999 /* CIMessageLeftCell.xib in Resources */,
 				18A62CDA1B96886800D04999 /* Expression_33@2x.png in Resources */,
 				18A62D131B96886800D04999 /* Expression_90@2x.png in Resources */,
 				18A62CDB1B96886800D04999 /* Expression_34@2x.png in Resources */,
@@ -801,9 +921,9 @@
 				18A62D011B96886800D04999 /* Expression_72@2x.png in Resources */,
 				18A62CD91B96886800D04999 /* Expression_32@2x.png in Resources */,
 				18A62D291B968B0800D04999 /* EmotionsEmojiHL.png in Resources */,
+				18A62D531B96949300D04999 /* CIVoiceRightCell.xib in Resources */,
 				18A62D001B96886800D04999 /* Expression_71@2x.png in Resources */,
 				18A62CE71B96886800D04999 /* Expression_46@2x.png in Resources */,
-				183AF5121B91355600292936 /* CIDetailCell.xib in Resources */,
 				18A62D121B96886800D04999 /* Expression_89@2x.png in Resources */,
 				18A62CF31B96886800D04999 /* Expression_58@2x.png in Resources */,
 				183AF5171B9136E100292936 /* CIInputBar.xib in Resources */,
@@ -838,18 +958,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18A62D481B9693D400D04999 /* CIMessageRightCell.m in Sources */,
 				183AF5151B9136D300292936 /* CIInputBar.m in Sources */,
 				183AF4E61B9133C900292936 /* ViewController.m in Sources */,
 				183AF52E1B917A6500292936 /* CIAnotherContentView.m in Sources */,
+				18A62D431B9693BE00D04999 /* CIMessageLeftCell.m in Sources */,
+				18A62D711B9695DF00D04999 /* CIImageLeftCell.m in Sources */,
+				18A62D761B9695F000D04999 /* CIImageRightCell.m in Sources */,
 				183AF4E31B9133C900292936 /* AppDelegate.m in Sources */,
+				18A62D621B96957E00D04999 /* CIEmotionLeftCell.m in Sources */,
 				183AF5071B91344800292936 /* CIDetailController.m in Sources */,
 				18A62C531B959EA100D04999 /* CIEmotionAlertView.m in Sources */,
 				183AF5291B91568A00292936 /* CIAnotherView.m in Sources */,
 				183AF5241B91473F00292936 /* CIEmotionView.m in Sources */,
-				183AF5111B91355600292936 /* CIDetailCell.m in Sources */,
+				18A62D4D1B96948200D04999 /* CIVocieLeftCell.m in Sources */,
+				18A62D571B9694D200D04999 /* CITimeCell.m in Sources */,
 				18A62C4B1B95365800D04999 /* CIEmotionBtnView.m in Sources */,
+				18A62D671B96958C00D04999 /* CIEmotionRightCell.m in Sources */,
 				183AF4E01B9133C900292936 /* main.m in Sources */,
 				18A62C421B94569800D04999 /* CIEmotionListBtnView.m in Sources */,
+				18A62D521B96949300D04999 /* CIVoiceRightCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,14 +1,14 @@
 //
-//  CIDetailCell.m
+//  TimeCell.m
 //  ChatInput
 //
-//  Created by apple on 15/8/29.
+//  Created by apple on 15/9/2.
 //  Copyright (c) 2015年 apple. All rights reserved.
 //
 
-#import "CIDetailCell.h"
+#import "CITimeCell.h"
 
-@implementation CIDetailCell
+@implementation CITimeCell
 
 - (void)awakeFromNib {
     // Initialization code
