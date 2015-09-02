@@ -166,6 +166,9 @@
 		18A62D721B9695DF00D04999 /* CIImageLeftCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A62D701B9695DF00D04999 /* CIImageLeftCell.xib */; };
 		18A62D761B9695F000D04999 /* CIImageRightCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A62D741B9695F000D04999 /* CIImageRightCell.m */; };
 		18A62D771B9695F000D04999 /* CIImageRightCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A62D751B9695F000D04999 /* CIImageRightCell.xib */; };
+		18A62D7A1B96D32C00D04999 /* SenderTextNodeBkg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A62D791B96D32C00D04999 /* SenderTextNodeBkg@2x.png */; };
+		18A62D7C1B96D37100D04999 /* ReceiverTextNodeBkg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A62D7B1B96D37100D04999 /* ReceiverTextNodeBkg@2x.png */; };
+		18A62D7E1B96F0BB00D04999 /* DefaultAvatar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A62D7D1B96F0BB00D04999 /* DefaultAvatar@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -362,6 +365,9 @@
 		18A62D731B9695F000D04999 /* CIImageRightCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIImageRightCell.h; sourceTree = "<group>"; };
 		18A62D741B9695F000D04999 /* CIImageRightCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIImageRightCell.m; sourceTree = "<group>"; };
 		18A62D751B9695F000D04999 /* CIImageRightCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CIImageRightCell.xib; sourceTree = "<group>"; };
+		18A62D791B96D32C00D04999 /* SenderTextNodeBkg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SenderTextNodeBkg@2x.png"; sourceTree = "<group>"; };
+		18A62D7B1B96D37100D04999 /* ReceiverTextNodeBkg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ReceiverTextNodeBkg@2x.png"; sourceTree = "<group>"; };
+		18A62D7D1B96F0BB00D04999 /* DefaultAvatar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DefaultAvatar@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -458,6 +464,7 @@
 		183AF5201B91406B00292936 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				18A62D781B96D30E00D04999 /* MessageCells */,
 				18A62C501B95955B00D04999 /* CustomEmotionBtns */,
 				18A62B641B94371400D04999 /* EmotionViewBtns */,
 				18A62B631B9436FC00D04999 /* AnotherViewBtns */,
@@ -723,6 +730,16 @@
 			name = ImageCells;
 			sourceTree = "<group>";
 		};
+		18A62D781B96D30E00D04999 /* MessageCells */ = {
+			isa = PBXGroup;
+			children = (
+				18A62D7D1B96F0BB00D04999 /* DefaultAvatar@2x.png */,
+				18A62D791B96D32C00D04999 /* SenderTextNodeBkg@2x.png */,
+				18A62D7B1B96D37100D04999 /* ReceiverTextNodeBkg@2x.png */,
+			);
+			name = MessageCells;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -866,6 +883,7 @@
 				18A62D631B96957E00D04999 /* CIEmotionLeftCell.xib in Resources */,
 				18A62CFF1B96886800D04999 /* Expression_70@2x.png in Resources */,
 				18A62CDF1B96886800D04999 /* Expression_38@2x.png in Resources */,
+				18A62D7C1B96D37100D04999 /* ReceiverTextNodeBkg@2x.png in Resources */,
 				18A62D271B968A8600D04999 /* CIAnother@2x.png in Resources */,
 				18A62CE21B96886800D04999 /* Expression_41@2x.png in Resources */,
 				18A62D031B96886800D04999 /* Expression_74@2x.png in Resources */,
@@ -889,6 +907,7 @@
 				18A62CD01B96886800D04999 /* Expression_23@2x.png in Resources */,
 				18A62CD71B96886800D04999 /* Expression_30@2x.png in Resources */,
 				18A62CC01B96886800D04999 /* Expression_7@2x.png in Resources */,
+				18A62D7A1B96D32C00D04999 /* SenderTextNodeBkg@2x.png in Resources */,
 				18A62CE41B96886800D04999 /* Expression_43@2x.png in Resources */,
 				18A62D051B96886800D04999 /* Expression_76@2x.png in Resources */,
 				18A62D0B1B96886800D04999 /* Expression_82@2x.png in Resources */,
@@ -936,6 +955,7 @@
 				18A62CF01B96886800D04999 /* Expression_55@2x.png in Resources */,
 				18A62CC91B96886800D04999 /* Expression_16@2x.png in Resources */,
 				18A62D0A1B96886800D04999 /* Expression_81@2x.png in Resources */,
+				18A62D7E1B96F0BB00D04999 /* DefaultAvatar@2x.png in Resources */,
 				18A62CC21B96886800D04999 /* Expression_9@2x.png in Resources */,
 				18A62CD51B96886800D04999 /* Expression_28@2x.png in Resources */,
 				183AF4EB1B9133C900292936 /* Images.xcassets in Resources */,

@@ -19,9 +19,11 @@
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="csA-kb-VhA">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
                     <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <gestureRecognizers/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="R0s-qr-nbH"/>
                         <outlet property="delegate" destination="-1" id="dIe-pa-pWe"/>
+                        <outletCollection property="gestureRecognizers" destination="Ynt-vz-u3U" appends="YES" id="QUb-mf-U7R"/>
                     </connections>
                 </tableView>
             </subviews>
@@ -33,5 +35,10 @@
                 <constraint firstAttribute="bottom" secondItem="csA-kb-VhA" secondAttribute="bottom" constant="44" id="po7-Cd-lQE"/>
             </constraints>
         </view>
+        <tapGestureRecognizer id="Ynt-vz-u3U">
+            <connections>
+                <action selector="tapOnTableView:" destination="-1" id="RLg-LK-ziD"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>

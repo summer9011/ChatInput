@@ -6,13 +6,55 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CIMessageLeftCell" id="KGk-i7-Jjw" customClass="CIMessageLeftCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CIMessageLeftCell" rowHeight="61" id="KGk-i7-Jjw" customClass="CIMessageLeftCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="61"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultAvatar.png" translatesAutoresizingMaskIntoConstraints="NO" id="nC2-rD-dSc">
+                        <rect key="frame" x="8" y="8" width="40" height="40"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="jfq-DL-igY"/>
+                            <constraint firstAttribute="height" constant="40" id="rEB-ZY-7hQ"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Mgr-NY-AxB">
+                        <rect key="frame" x="52" y="4" width="218" height="52"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="218" id="pL9-sG-6us"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <inset key="contentEdgeInsets" minX="20" minY="16" maxX="14" maxY="16"/>
+                        <state key="normal" title="Button" backgroundImage="ReceiverTextNodeBkg.png">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <gestureRecognizers/>
+                <constraints>
+                    <constraint firstItem="nC2-rD-dSc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="7Kh-me-SvI"/>
+                    <constraint firstAttribute="bottom" secondItem="Mgr-NY-AxB" secondAttribute="bottom" constant="4" id="FC0-zt-zMF"/>
+                    <constraint firstItem="Mgr-NY-AxB" firstAttribute="leading" secondItem="nC2-rD-dSc" secondAttribute="trailing" constant="4" id="SOP-L8-U7e"/>
+                    <constraint firstItem="nC2-rD-dSc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Vjn-xU-cKC"/>
+                    <constraint firstItem="Mgr-NY-AxB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="gR1-zJ-Lb6"/>
+                </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="detailBtn" destination="Mgr-NY-AxB" id="0iE-Kw-Urz"/>
+                <outlet property="detailBtnConstraintWidth" destination="pL9-sG-6us" id="1xn-uq-qsd"/>
+                <outlet property="iconImageView" destination="nC2-rD-dSc" id="c6z-80-s7d"/>
+            </connections>
+            <point key="canvasLocation" x="368" y="441.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="DefaultAvatar.png" width="40" height="40"/>
+        <image name="ReceiverTextNodeBkg.png" width="62" height="49"/>
+    </resources>
 </document>

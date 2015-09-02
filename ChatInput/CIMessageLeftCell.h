@@ -10,4 +10,8 @@
 
 @interface CIMessageLeftCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
+@property (weak, nonatomic) IBOutlet UIButton *detailBtn;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *detailBtnConstraintWidth;
+
 @end

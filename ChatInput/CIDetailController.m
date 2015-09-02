@@ -40,6 +40,9 @@
 @property (nonatomic, strong) NSLayoutConstraint *anotherViewBottom;
 @property (nonatomic, strong) NSArray *anotherItems;
 
+@property (nonatomic, strong) NSMutableArray *detailArr;
+@property (nonatomic, strong) NSMutableDictionary *detailHeightDic;
+
 @end
 
 static NSString *timeCellId = @"CITimeCell";
@@ -57,6 +60,9 @@ static NSString *imageRightCellId = @"CIImageRightCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.detailArr = [NSMutableArray array];
+    self.detailHeightDic = [NSMutableDictionary dictionary];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
     
     [self.chatDetail registerNib:[UINib nibWithNibName:timeCellId bundle:nil] forCellReuseIdentifier:timeCellId];
@@ -68,6 +74,7 @@ static NSString *imageRightCellId = @"CIImageRightCell";
     [self.chatDetail registerNib:[UINib nibWithNibName:emotionRightCellId bundle:nil] forCellReuseIdentifier:emotionRightCellId];
     [self.chatDetail registerNib:[UINib nibWithNibName:imageLeftCellId bundle:nil] forCellReuseIdentifier:imageLeftCellId];
     [self.chatDetail registerNib:[UINib nibWithNibName:imageRightCellId bundle:nil] forCellReuseIdentifier:imageRightCellId];
+    
     
     self.emotionItems = @[
                           @{
@@ -123,6 +130,23 @@ static NSString *imageRightCellId = @"CIImageRightCell";
     [self initInputBar];
     [self initEmotionView];
     [self initAnotherView];
+    
+    
+    NSArray *tmpArr = @[
+                        @{
+                            @"icon": @"",
+                            @"text": @"双方说法是粉色沙发沙发上"
+                            },
+                        @{
+                            @"icon": @"",
+                            @"text": @"哈哈哈哈哈哈啊啊哈哈哈哈哈啊哈哈哈哈哈啊哈哈哈哈啊哈哈哈哈哈啊哈哈哈哈啊哈哈哈哈哈"
+                            },
+                        @{
+                            @"icon": @"",
+                            @"text": @"2222222dffdfsfsdfadafasfa"
+                            }
+                        ];
+    [self.detailArr addObjectsFromArray:tmpArr];
 }
 
 - (void)dealloc {
@@ -197,29 +221,60 @@ static NSString *imageRightCellId = @"CIImageRightCell";
     [self.anotherView addItems:self.anotherItems row:2 col:4];
 }
 
-#pragma mark - UITableViewDataSource, UITableViewDelegate
+#pragma mark - GestureRecognizer
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CIMessageLeftCell *cell = [tableView dequeueReusableCellWithIdentifier:messageLeftCellId forIndexPath:indexPath];
-    
-    return cell;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 80;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (IBAction)tapOnTableView:(id)sender {
     [self.inputBar endEditing];
     
     self.inputBarBottom.constant = 0.f;
     
     [self didChooseTextView];
     [self resetTableViewFrame:YES];
+}
+
+#pragma mark - UITableViewDataSource, UITableViewDelegate
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.detailArr.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    CIMessageRightCell *cell = [tableView dequeueReusableCellWithIdentifier:messageRightCellId forIndexPath:indexPath];
+    
+    NSDictionary *detail = self.detailArr[indexPath.row];
+    
+    CGSize cellSize = [self.detailHeightDic[indexPath] CGSizeValue];
+    
+    [cell.detailBtn setTitle:detail[@"text"] forState:UIControlStateNormal];
+    cell.detailBtnConstraintWidth.constant = cellSize.width;
+    
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.detailHeightDic[indexPath]) {
+        CGSize cellSize = [self.detailHeightDic[indexPath] CGSizeValue];
+        
+        return cellSize.height;
+    } else {
+        CGRect rect = [UIScreen mainScreen].bounds;
+        
+        NSDictionary *detail = self.detailArr[indexPath.row];
+        
+        NSString *text = (NSString *)detail[@"text"];
+        CGRect bound = [text boundingRectWithSize:CGSizeMake(rect.size.width - 84 - 52, MAXFLOAT) options: NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:16]} context:nil];
+        
+        CGSize cellSize = CGSizeMake(bound.size.width + 28, bound.size.height + 38);
+        [self.detailHeightDic setObject:[NSValue valueWithCGSize:cellSize] forKey:indexPath];
+        
+        return cellSize.height;
+    }
+    
+    return 0;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self tapOnTableView:nil];
 }
 
 #pragma mark - Private Method
@@ -233,8 +288,11 @@ static NSString *imageRightCellId = @"CIImageRightCell";
         }];
     }
     
-    CGFloat offsetY = self.chatDetail.contentSize.height - CGRectGetHeight(self.chatDetail.frame);
-    [self.chatDetail setContentOffset:CGPointMake(0, offsetY) animated:animation];
+    if (self.chatDetail.contentSize.height > CGRectGetHeight(self.chatDetail.frame)) {
+        CGFloat offsetY = self.chatDetail.contentSize.height - CGRectGetHeight(self.chatDetail.frame);
+        [self.chatDetail setContentOffset:CGPointMake(0, offsetY) animated:animation];
+    }
+    
 }
 
 #pragma mark - Notification
@@ -258,6 +316,8 @@ static NSString *imageRightCellId = @"CIImageRightCell";
 #pragma mark - CIInputBarDelegate
 
 - (void)didSendMessage:(NSString *)message {
+    
+    
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"发送文字" message:message delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil, nil];
     [alert show];
 }
