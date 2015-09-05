@@ -245,8 +245,8 @@ static NSString *imageRightCellId = @"CIImageRightCell";
     
     CGSize cellSize = [self.detailHeightDic[indexPath] CGSizeValue];
     
-    [cell.detailBtn setTitle:detail[@"text"] forState:UIControlStateNormal];
-    cell.detailBtnConstraintWidth.constant = cellSize.width;
+    cell.detailLabel.attributedText = [[NSAttributedString alloc] initWithString:detail[@"text"]];
+    cell.detailViewConstraintWidth.constant = cellSize.width;
     
     return cell;
 }
@@ -264,7 +264,7 @@ static NSString *imageRightCellId = @"CIImageRightCell";
         NSString *text = (NSString *)detail[@"text"];
         CGRect bound = [text boundingRectWithSize:CGSizeMake(rect.size.width - 84 - 52, MAXFLOAT) options: NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:16]} context:nil];
         
-        CGSize cellSize = CGSizeMake(bound.size.width + 28, bound.size.height + 38);
+        CGSize cellSize = CGSizeMake(bound.size.width + 34, bound.size.height + 38);
         [self.detailHeightDic setObject:[NSValue valueWithCGSize:cellSize] forKey:indexPath];
         
         return cellSize.height;
@@ -289,8 +289,8 @@ static NSString *imageRightCellId = @"CIImageRightCell";
     }
     
     if (self.chatDetail.contentSize.height > CGRectGetHeight(self.chatDetail.frame)) {
-        CGFloat offsetY = self.chatDetail.contentSize.height - CGRectGetHeight(self.chatDetail.frame);
-        [self.chatDetail setContentOffset:CGPointMake(0, offsetY) animated:animation];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.detailArr.count - 1 inSection:0];
+        [self.chatDetail scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
     }
     
 }
@@ -316,10 +316,18 @@ static NSString *imageRightCellId = @"CIImageRightCell";
 #pragma mark - CIInputBarDelegate
 
 - (void)didSendMessage:(NSString *)message {
+    NSDictionary *dic = @{
+                              @"icon": @"",
+                              @"text": message
+                              };
     
+    [self.detailArr addObject:dic];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"发送文字" message:message delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil, nil];
-    [alert show];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.detailArr.count - 1 inSection:0];
+    [self.chatDetail insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    [self.chatDetail scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    
+    [self.emotionView emotionSendBtnEnable:NO];
 }
 
 - (void)didChooseTextView {

@@ -15,14 +15,14 @@
     
     UIImage *image = [UIImage imageNamed:@"ReceiverTextNodeBkg"];
     UIImage *resizeImage = [image resizableImageWithCapInsets:UIEdgeInsetsMake(30, 12, 8, 8) resizingMode:UIImageResizingModeStretch];
-    [self.detailBtn setBackgroundImage:resizeImage forState:UIControlStateNormal];
+    self.detailBackground.image = resizeImage;
     
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapOnAvatar:)];
     [self.iconImageView addGestureRecognizer:singleTap];
     
     UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapOnDetail:)];
     doubleTap.numberOfTapsRequired = 2;
-    [self.detailBtn addGestureRecognizer:doubleTap];
+    [self.detailView addGestureRecognizer:doubleTap];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

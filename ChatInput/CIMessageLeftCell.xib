@@ -21,33 +21,48 @@
                             <constraint firstAttribute="height" constant="40" id="rEB-ZY-7hQ"/>
                         </constraints>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Mgr-NY-AxB">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BBA-1v-NB8">
                         <rect key="frame" x="52" y="4" width="218" height="52"/>
+                        <subviews>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ReceiverTextNodeBkg.png" translatesAutoresizingMaskIntoConstraints="NO" id="CkL-V9-eWs">
+                                <rect key="frame" x="0.0" y="0.0" width="218" height="52"/>
+                            </imageView>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ukw-V7-GHo">
+                                <rect key="frame" x="16" y="16" width="186" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="218" id="pL9-sG-6us"/>
+                            <constraint firstItem="CkL-V9-eWs" firstAttribute="top" secondItem="BBA-1v-NB8" secondAttribute="top" id="Djd-aE-unU"/>
+                            <constraint firstItem="ukw-V7-GHo" firstAttribute="top" secondItem="BBA-1v-NB8" secondAttribute="top" constant="16" id="OJ2-1a-2AD"/>
+                            <constraint firstAttribute="trailing" secondItem="ukw-V7-GHo" secondAttribute="trailing" constant="16" id="QVS-ty-BiX"/>
+                            <constraint firstItem="CkL-V9-eWs" firstAttribute="leading" secondItem="BBA-1v-NB8" secondAttribute="leading" id="Tch-U8-hhx"/>
+                            <constraint firstItem="ukw-V7-GHo" firstAttribute="leading" secondItem="BBA-1v-NB8" secondAttribute="leading" constant="16" id="esQ-mE-uy6"/>
+                            <constraint firstAttribute="trailing" secondItem="CkL-V9-eWs" secondAttribute="trailing" id="sMQ-s4-Oq8"/>
+                            <constraint firstAttribute="width" constant="218" id="yHu-5F-dKN"/>
+                            <constraint firstAttribute="bottom" secondItem="CkL-V9-eWs" secondAttribute="bottom" id="zTQ-ct-lDh"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <inset key="contentEdgeInsets" minX="20" minY="16" maxX="14" maxY="16"/>
-                        <state key="normal" title="Button" backgroundImage="ReceiverTextNodeBkg.png">
-                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        </state>
-                    </button>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <gestureRecognizers/>
                 <constraints>
                     <constraint firstItem="nC2-rD-dSc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="7Kh-me-SvI"/>
-                    <constraint firstAttribute="bottom" secondItem="Mgr-NY-AxB" secondAttribute="bottom" constant="4" id="FC0-zt-zMF"/>
-                    <constraint firstItem="Mgr-NY-AxB" firstAttribute="leading" secondItem="nC2-rD-dSc" secondAttribute="trailing" constant="4" id="SOP-L8-U7e"/>
+                    <constraint firstItem="BBA-1v-NB8" firstAttribute="leading" secondItem="nC2-rD-dSc" secondAttribute="trailing" constant="4" id="7QJ-wv-3eT"/>
                     <constraint firstItem="nC2-rD-dSc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Vjn-xU-cKC"/>
-                    <constraint firstItem="Mgr-NY-AxB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="gR1-zJ-Lb6"/>
+                    <constraint firstAttribute="bottom" secondItem="BBA-1v-NB8" secondAttribute="bottom" constant="4" id="fhC-zA-1Xb"/>
+                    <constraint firstItem="BBA-1v-NB8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="kKf-4V-KGT"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
-                <outlet property="detailBtn" destination="Mgr-NY-AxB" id="0iE-Kw-Urz"/>
-                <outlet property="detailBtnConstraintWidth" destination="pL9-sG-6us" id="1xn-uq-qsd"/>
+                <outlet property="detailBackground" destination="CkL-V9-eWs" id="LOv-sQ-Ppw"/>
+                <outlet property="detailLabel" destination="ukw-V7-GHo" id="69b-wd-ICY"/>
+                <outlet property="detailView" destination="BBA-1v-NB8" id="n4v-HR-ABG"/>
+                <outlet property="detailViewConstraintWidth" destination="yHu-5F-dKN" id="WQY-FT-T7J"/>
                 <outlet property="iconImageView" destination="nC2-rD-dSc" id="c6z-80-s7d"/>
             </connections>
             <point key="canvasLocation" x="368" y="441.5"/>

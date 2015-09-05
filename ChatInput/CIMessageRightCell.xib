@@ -21,18 +21,30 @@
                             <constraint firstAttribute="height" constant="40" id="DwI-1p-7Dc"/>
                         </constraints>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="KSC-dF-RTV">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rXv-sb-cJr">
                         <rect key="frame" x="50" y="4" width="218" height="49"/>
+                        <subviews>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wUS-KH-hSu">
+                                <rect key="frame" x="0.0" y="0.0" width="218" height="49"/>
+                            </imageView>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ggn-df-DCm">
+                                <rect key="frame" x="16" y="16" width="186" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="218" id="MRo-gA-DQH"/>
+                            <constraint firstItem="Ggn-df-DCm" firstAttribute="leading" secondItem="rXv-sb-cJr" secondAttribute="leading" constant="16" id="8V8-Af-Frg"/>
+                            <constraint firstItem="wUS-KH-hSu" firstAttribute="leading" secondItem="rXv-sb-cJr" secondAttribute="leading" id="CoI-b9-PEw"/>
+                            <constraint firstAttribute="trailing" secondItem="wUS-KH-hSu" secondAttribute="trailing" id="EOu-C5-zkt"/>
+                            <constraint firstItem="Ggn-df-DCm" firstAttribute="top" secondItem="rXv-sb-cJr" secondAttribute="top" constant="16" id="EYb-nr-Khu"/>
+                            <constraint firstAttribute="width" constant="218" id="ZpG-fv-GB5"/>
+                            <constraint firstAttribute="bottom" secondItem="wUS-KH-hSu" secondAttribute="bottom" id="rIG-Eb-xz6"/>
+                            <constraint firstAttribute="trailing" secondItem="Ggn-df-DCm" secondAttribute="trailing" constant="16" id="vXs-32-LOX"/>
+                            <constraint firstItem="wUS-KH-hSu" firstAttribute="top" secondItem="rXv-sb-cJr" secondAttribute="top" id="ynJ-Q3-2yP"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <inset key="contentEdgeInsets" minX="14" minY="16" maxX="20" maxY="16"/>
-                        <state key="normal" title="Button" backgroundImage="SenderTextNodeBkg.png">
-                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        </state>
-                    </button>
+                    </view>
                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="a32-gc-Ayu">
                         <rect key="frame" x="22" y="19" width="20" height="20"/>
                         <constraints>
@@ -56,21 +68,23 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="Uwr-bk-GFJ" firstAttribute="leading" secondItem="KSC-dF-RTV" secondAttribute="trailing" constant="4" id="JUj-FG-KG5"/>
-                    <constraint firstItem="KSC-dF-RTV" firstAttribute="leading" secondItem="a32-gc-Ayu" secondAttribute="trailing" constant="8" id="Ul1-lJ-0IF"/>
-                    <constraint firstItem="KSC-dF-RTV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="hZo-EQ-uHp"/>
-                    <constraint firstAttribute="bottom" secondItem="KSC-dF-RTV" secondAttribute="bottom" constant="4" id="jhA-9y-4x0"/>
+                    <constraint firstItem="rXv-sb-cJr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="3Li-nL-Gcc"/>
+                    <constraint firstItem="Uwr-bk-GFJ" firstAttribute="leading" secondItem="rXv-sb-cJr" secondAttribute="trailing" constant="4" id="SI8-xB-cs2"/>
+                    <constraint firstAttribute="bottom" secondItem="rXv-sb-cJr" secondAttribute="bottom" constant="4" id="cBq-fi-NEG"/>
                     <constraint firstItem="Uwr-bk-GFJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="kEy-Cj-y03"/>
                     <constraint firstItem="a32-gc-Ayu" firstAttribute="centerX" secondItem="4KJ-Ld-m58" secondAttribute="centerX" id="lrC-ao-nSt"/>
                     <constraint firstItem="a32-gc-Ayu" firstAttribute="centerY" secondItem="4KJ-Ld-m58" secondAttribute="centerY" id="ooq-Jz-5ln"/>
                     <constraint firstAttribute="centerY" secondItem="a32-gc-Ayu" secondAttribute="centerY" id="ptf-nh-daW"/>
+                    <constraint firstItem="rXv-sb-cJr" firstAttribute="leading" secondItem="a32-gc-Ayu" secondAttribute="trailing" constant="8" id="voA-Tq-iI5"/>
                     <constraint firstAttribute="trailing" secondItem="Uwr-bk-GFJ" secondAttribute="trailing" constant="8" id="yzC-Kd-BCp"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
-                <outlet property="detailBtn" destination="KSC-dF-RTV" id="lbh-q3-lF9"/>
-                <outlet property="detailBtnConstraintWidth" destination="MRo-gA-DQH" id="8UY-yD-PWs"/>
+                <outlet property="detailBackground" destination="wUS-KH-hSu" id="fMN-KO-ebe"/>
+                <outlet property="detailLabel" destination="Ggn-df-DCm" id="5pH-1w-ckb"/>
+                <outlet property="detailView" destination="rXv-sb-cJr" id="8hu-WL-CQp"/>
+                <outlet property="detailViewConstraintWidth" destination="ZpG-fv-GB5" id="SK8-iL-4K4"/>
                 <outlet property="iconImageView" destination="Uwr-bk-GFJ" id="WMJ-vf-n64"/>
                 <outlet property="resendBtn" destination="4KJ-Ld-m58" id="adj-wa-Nvs"/>
                 <outlet property="sendingActivity" destination="a32-gc-Ayu" id="fnu-Et-4BY"/>
@@ -80,7 +94,6 @@
     </objects>
     <resources>
         <image name="DefaultAvatar.png" width="40" height="40"/>
-        <image name="SenderTextNodeBkg.png" width="62" height="49"/>
         <image name="TimedOut.png" width="45" height="45"/>
     </resources>
 </document>

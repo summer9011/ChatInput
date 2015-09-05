@@ -663,9 +663,9 @@
 			children = (
 				18A62D5C1B96951E00D04999 /* TimeCells */,
 				18A62D5A1B96950000D04999 /* MessageCells */,
+				18A62D5E1B96956600D04999 /* ImageCells */,
 				18A62D5B1B96950F00D04999 /* VoiceCells */,
 				18A62D5D1B96955A00D04999 /* EmotionCells */,
-				18A62D5E1B96956600D04999 /* ImageCells */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
