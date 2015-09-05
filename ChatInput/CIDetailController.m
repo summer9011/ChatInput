@@ -60,6 +60,9 @@ static NSString *imageRightCellId = @"CIImageRightCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(goBackToHome:)];
+    self.navigationItem.leftBarButtonItem = barButtonItem;
+    
     self.detailArr = [NSMutableArray array];
     self.detailHeightDic = [NSMutableDictionary dictionary];
     
@@ -157,6 +160,10 @@ static NSString *imageRightCellId = @"CIImageRightCell";
     [super didReceiveMemoryWarning];
 }
 
+- (void)goBackToHome:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 #pragma mark - Init View
 
 - (void)initInputBar {
@@ -245,7 +252,12 @@ static NSString *imageRightCellId = @"CIImageRightCell";
     
     CGSize cellSize = [self.detailHeightDic[indexPath] CGSizeValue];
     
-    cell.detailLabel.attributedText = [[NSAttributedString alloc] initWithString:detail[@"text"]];
+    if ([detail[@"text"] isKindOfClass:[NSAttributedString class]]) {
+        cell.detailLabel.attributedText = detail[@"text"];
+    } else {
+        cell.detailLabel.text = detail[@"text"];
+    }
+    
     cell.detailViewConstraintWidth.constant = cellSize.width;
     
     return cell;
@@ -261,10 +273,17 @@ static NSString *imageRightCellId = @"CIImageRightCell";
         
         NSDictionary *detail = self.detailArr[indexPath.row];
         
-        NSString *text = (NSString *)detail[@"text"];
-        CGRect bound = [text boundingRectWithSize:CGSizeMake(rect.size.width - 84 - 52, MAXFLOAT) options: NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:16]} context:nil];
+        CGSize cellSize;
+        if ([detail[@"text"] isKindOfClass:[NSAttributedString class]]) {
+            CGRect bound = [detail[@"text"] boundingRectWithSize:CGSizeMake(rect.size.width - 84 - 52, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin context:nil];
+            
+            cellSize = CGSizeMake(bound.size.width + 34 + 2 * [detail[@"textCount"] integerValue], bound.size.height + 38);
+        } else {
+            CGRect bound = [detail[@"text"] boundingRectWithSize:CGSizeMake(rect.size.width - 84 - 52, MAXFLOAT) options: NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:16]} context:nil];
+            
+            cellSize = CGSizeMake(bound.size.width + 34, bound.size.height + 38);
+        }
         
-        CGSize cellSize = CGSizeMake(bound.size.width + 34, bound.size.height + 38);
         [self.detailHeightDic setObject:[NSValue valueWithCGSize:cellSize] forKey:indexPath];
         
         return cellSize.height;
@@ -316,11 +335,47 @@ static NSString *imageRightCellId = @"CIImageRightCell";
 #pragma mark - CIInputBarDelegate
 
 - (void)didSendMessage:(NSString *)message {
-    NSDictionary *dic = @{
-                              @"icon": @"",
-                              @"text": message
-                              };
+    NSDictionary *dic;
     
+    //设置表情
+    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:message];
+    
+    NSString *resourcePath = [[NSBundle mainBundle] pathForResource:@"expression" ofType:@"plist"];
+    NSDictionary *expressionDic = [[NSDictionary alloc] initWithContentsOfFile:resourcePath];
+    
+    NSString *pattern = @"\\[[a-zA-Z0-9\u4e00-\u9fa5]+\\]";
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:nil];
+    NSArray *resultArr = [regex matchesInString:message options:NSMatchingReportProgress range:NSMakeRange(0, message.length)];
+    
+    if (resultArr.count > 0) {
+        NSUInteger messageLength = message.length;
+        
+        for (int i = (int)resultArr.count - 1; i >= 0; i --) {
+            NSTextCheckingResult *result = resultArr[i];
+            
+            NSString *emotionStr = expressionDic[[message substringWithRange:result.range]];
+            NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
+            textAttachment.image = [UIImage imageNamed:emotionStr];
+            
+            NSAttributedString *imageStr = [NSAttributedString attributedStringWithAttachment:textAttachment];
+            [attrStr replaceCharactersInRange:result.range withAttributedString:imageStr];
+            
+            messageLength -= (result.range.length - 1);
+        }
+        
+        dic = @{
+                @"icon": @"",
+                @"text": attrStr,
+                @"textCount": [NSNumber numberWithInteger:messageLength]
+                };
+    } else {
+        dic = @{
+                @"icon": @"",
+                @"text": message
+                };
+    }
+    
+    //重新加载
     [self.detailArr addObject:dic];
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.detailArr.count - 1 inSection:0];

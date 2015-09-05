@@ -160,20 +160,15 @@
 
 - (void)deleteText {
     if (![self.textView.text isEqualToString:@""]) {
+        NSString *pattern = @"\\[[a-zA-Z0-9\u4e00-\u9fa5]+\\]";
+        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:nil];
+        NSArray *resultArr = [regex matchesInString:self.textView.text options:NSMatchingReportProgress range:NSMakeRange(0, self.textView.text.length)];
+        
         NSRange range;
         
-        if ([self.textView.text hasSuffix:@"]"]) {
-            NSError *error;
-            NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\[" options:NSRegularExpressionCaseInsensitive error:&error];
-            NSArray *resultArr = [regex matchesInString:self.textView.text options:NSMatchingReportProgress range:NSMakeRange(0, self.textView.text.length)];
-            
-            if (resultArr.count > 0) {
-                NSTextCheckingResult *result = resultArr.lastObject;
-                range = NSMakeRange(0, result.range.location);
-            } else {
-                range = NSMakeRange(0, self.textView.text.length - 1);
-            }
-            
+        if (resultArr.count > 0) {
+            NSTextCheckingResult *result = resultArr.lastObject;
+            range = NSMakeRange(0, result.range.location);
         } else {
             range = NSMakeRange(0, self.textView.text.length - 1);
         }

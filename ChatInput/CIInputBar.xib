@@ -126,9 +126,9 @@
         </view>
     </objects>
     <resources>
-        <image name="CIAnother.png" width="70" height="70"/>
-        <image name="CIEmotion.png" width="70" height="70"/>
-        <image name="CIKeyboard.png" width="70" height="70"/>
-        <image name="CIVoice.png" width="70" height="70"/>
+        <image name="CIAnother.png" width="35" height="35"/>
+        <image name="CIEmotion.png" width="35" height="35"/>
+        <image name="CIKeyboard.png" width="35" height="35"/>
+        <image name="CIVoice.png" width="35" height="35"/>
     </resources>
 </document>
