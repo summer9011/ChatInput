@@ -10,4 +10,10 @@
 
 @interface CIImageRightCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *contentImageView;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentImageViewConstraintWidth;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentImageViewConstraintHeight;
+
 @end

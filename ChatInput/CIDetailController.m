@@ -135,18 +135,32 @@ static NSString *imageRightCellId = @"CIImageRightCell";
     [self initAnotherView];
     
     
+//    NSArray *tmpArr = @[
+//                        @{
+//                            @"icon": @"",
+//                            @"text": @"双方说法是粉色沙发沙发上"
+//                            },
+//                        @{
+//                            @"icon": @"",
+//                            @"text": @"哈哈哈哈哈哈啊啊哈哈哈哈哈啊哈哈哈哈哈啊哈哈哈哈啊哈哈哈哈哈啊哈哈哈哈啊哈哈哈哈哈"
+//                            },
+//                        @{
+//                            @"icon": @"",
+//                            @"text": @"2222222dffdfsfsdfadafasfa"
+//                            }
+//                        ];
     NSArray *tmpArr = @[
                         @{
                             @"icon": @"",
-                            @"text": @"双方说法是粉色沙发沙发上"
+                            @"text": @"jpg1.jpg"
                             },
                         @{
                             @"icon": @"",
-                            @"text": @"哈哈哈哈哈哈啊啊哈哈哈哈哈啊哈哈哈哈哈啊哈哈哈哈啊哈哈哈哈哈啊哈哈哈哈啊哈哈哈哈哈"
+                            @"text": @"jpg2.jpg"
                             },
                         @{
                             @"icon": @"",
-                            @"text": @"2222222dffdfsfsdfadafasfa"
+                            @"text": @"jpg3.jpg"
                             }
                         ];
     [self.detailArr addObjectsFromArray:tmpArr];
@@ -246,19 +260,29 @@ static NSString *imageRightCellId = @"CIImageRightCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CIMessageRightCell *cell = [tableView dequeueReusableCellWithIdentifier:messageRightCellId forIndexPath:indexPath];
+    CIImageLeftCell *cell = [tableView dequeueReusableCellWithIdentifier:imageLeftCellId forIndexPath:indexPath];
     
     NSDictionary *detail = self.detailArr[indexPath.row];
     
     CGSize cellSize = [self.detailHeightDic[indexPath] CGSizeValue];
     
-    if ([detail[@"text"] isKindOfClass:[NSAttributedString class]]) {
-        cell.detailLabel.attributedText = detail[@"text"];
-    } else {
-        cell.detailLabel.text = detail[@"text"];
-    }
+    //MessageCell
+//    if ([detail[@"text"] isKindOfClass:[NSAttributedString class]]) {
+//        cell.detailLabel.attributedText = detail[@"text"];
+//    } else {
+//        cell.detailLabel.text = detail[@"text"];
+//    }
+//    
+//    cell.detailViewConstraintWidth.constant = cellSize.width;
     
-    cell.detailViewConstraintWidth.constant = cellSize.width;
+    //TimeCell
+//    cell.timeLabel.text = detail[@"text"];
+//    cell.timeLabelConstraintWidth.constant = cellSize.width;
+    
+    //ImageCell
+    cell.contentImageView.image = [UIImage imageNamed:detail[@"text"]];
+    cell.contentImageViewConstraintWidth.constant = cellSize.width;
+    cell.contentImageViewConstraintHeight.constant = cellSize.height - 16;
     
     return cell;
 }
@@ -273,15 +297,32 @@ static NSString *imageRightCellId = @"CIImageRightCell";
         
         NSDictionary *detail = self.detailArr[indexPath.row];
         
+//        CGSize cellSize;
+//        if ([detail[@"text"] isKindOfClass:[NSAttributedString class]]) {
+//            CGRect bound = [detail[@"text"] boundingRectWithSize:CGSizeMake(rect.size.width - 84 - 52, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin context:nil];
+//            
+//            cellSize = CGSizeMake(bound.size.width + 34 + 2 * [detail[@"textCount"] integerValue], bound.size.height + 38);
+//        } else {
+//            CGRect bound = [detail[@"text"] boundingRectWithSize:CGSizeMake(rect.size.width - 84 - 52, MAXFLOAT) options: NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:16]} context:nil];
+//            
+//            //MessageCell
+////            cellSize = CGSizeMake(bound.size.width + 34, bound.size.height + 38);
+//            
+//            //timeCell
+//            cellSize = CGSizeMake(bound.size.width + 10, bound.size.height + 10);
+//        }
+        
+        //ImageCell
+        UIImage *image = [UIImage imageNamed:detail[@"text"]];
+        
         CGSize cellSize;
-        if ([detail[@"text"] isKindOfClass:[NSAttributedString class]]) {
-            CGRect bound = [detail[@"text"] boundingRectWithSize:CGSizeMake(rect.size.width - 84 - 52, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin context:nil];
-            
-            cellSize = CGSizeMake(bound.size.width + 34 + 2 * [detail[@"textCount"] integerValue], bound.size.height + 38);
+        CGFloat p = image.size.width/image.size.height;
+        if (p > 1) {
+            cellSize.width = 200;
+            cellSize.height = 200/p + 16;
         } else {
-            CGRect bound = [detail[@"text"] boundingRectWithSize:CGSizeMake(rect.size.width - 84 - 52, MAXFLOAT) options: NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:16]} context:nil];
-            
-            cellSize = CGSizeMake(bound.size.width + 34, bound.size.height + 38);
+            cellSize.height = 200 + 16;
+            cellSize.width = 200*p;
         }
         
         [self.detailHeightDic setObject:[NSValue valueWithCGSize:cellSize] forKey:indexPath];

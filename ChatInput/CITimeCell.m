@@ -12,6 +12,9 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    
+    self.timeLabel.layer.masksToBounds = YES;
+    self.timeLabel.layer.cornerRadius = 5.f;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

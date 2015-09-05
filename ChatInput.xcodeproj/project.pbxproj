@@ -170,6 +170,9 @@
 		18A62D7C1B96D37100D04999 /* ReceiverTextNodeBkg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A62D7B1B96D37100D04999 /* ReceiverTextNodeBkg@2x.png */; };
 		18A62D7E1B96F0BB00D04999 /* DefaultAvatar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A62D7D1B96F0BB00D04999 /* DefaultAvatar@2x.png */; };
 		18A62D801B96F54F00D04999 /* TimedOut@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A62D7F1B96F54F00D04999 /* TimedOut@2x.png */; };
+		18A62D851B9AAA3B00D04999 /* jpg1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18A62D821B9AAA3B00D04999 /* jpg1.jpg */; };
+		18A62D861B9AAA3B00D04999 /* jpg2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18A62D831B9AAA3B00D04999 /* jpg2.jpg */; };
+		18A62D871B9AAA3B00D04999 /* jpg3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18A62D841B9AAA3B00D04999 /* jpg3.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -370,6 +373,9 @@
 		18A62D7B1B96D37100D04999 /* ReceiverTextNodeBkg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ReceiverTextNodeBkg@2x.png"; sourceTree = "<group>"; };
 		18A62D7D1B96F0BB00D04999 /* DefaultAvatar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DefaultAvatar@2x.png"; sourceTree = "<group>"; };
 		18A62D7F1B96F54F00D04999 /* TimedOut@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TimedOut@2x.png"; sourceTree = "<group>"; };
+		18A62D821B9AAA3B00D04999 /* jpg1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = jpg1.jpg; sourceTree = "<group>"; };
+		18A62D831B9AAA3B00D04999 /* jpg2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = jpg2.jpg; sourceTree = "<group>"; };
+		18A62D841B9AAA3B00D04999 /* jpg3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = jpg3.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -466,6 +472,7 @@
 		183AF5201B91406B00292936 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				18A62D811B9AAA3300D04999 /* Temp */,
 				18A62D781B96D30E00D04999 /* MessageCells */,
 				18A62C501B95955B00D04999 /* CustomEmotionBtns */,
 				18A62B641B94371400D04999 /* EmotionViewBtns */,
@@ -743,6 +750,16 @@
 			name = MessageCells;
 			sourceTree = "<group>";
 		};
+		18A62D811B9AAA3300D04999 /* Temp */ = {
+			isa = PBXGroup;
+			children = (
+				18A62D821B9AAA3B00D04999 /* jpg1.jpg */,
+				18A62D831B9AAA3B00D04999 /* jpg2.jpg */,
+				18A62D841B9AAA3B00D04999 /* jpg3.jpg */,
+			);
+			name = Temp;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -829,6 +846,7 @@
 				18A62C551B959EB600D04999 /* CIEmotionAlertView.xib in Resources */,
 				18A62D771B9695F000D04999 /* CIImageRightCell.xib in Resources */,
 				18A62CC41B96886800D04999 /* Expression_11@2x.png in Resources */,
+				18A62D871B9AAA3B00D04999 /* jpg3.jpg in Resources */,
 				183AF52B1B91569A00292936 /* CIAnotherView.xib in Resources */,
 				18A62D251B968A7E00D04999 /* CIKeyboard@2x.png in Resources */,
 				18A62D341B968C2000D04999 /* CIAnotherContent9@2x.png in Resources */,
@@ -839,6 +857,7 @@
 				18A62CFD1B96886800D04999 /* Expression_68@2x.png in Resources */,
 				18A62CCA1B96886800D04999 /* Expression_17@2x.png in Resources */,
 				18A62CEA1B96886800D04999 /* Expression_49@2x.png in Resources */,
+				18A62D851B9AAA3B00D04999 /* jpg1.jpg in Resources */,
 				18A62CE61B96886800D04999 /* Expression_45@2x.png in Resources */,
 				18A62D3A1B968C2000D04999 /* CIAnotherContent4@2x.png in Resources */,
 				18A62CCE1B96886800D04999 /* Expression_21@2x.png in Resources */,
@@ -880,6 +899,7 @@
 				18A62CF41B96886800D04999 /* Expression_59@2x.png in Resources */,
 				18A62D141B96886800D04999 /* Expression_91@2x.png in Resources */,
 				18A62D3C1B968C2000D04999 /* CIAnotherContent10@2x.png in Resources */,
+				18A62D861B9AAA3B00D04999 /* jpg2.jpg in Resources */,
 				18A62CC61B96886800D04999 /* Expression_13@2x.png in Resources */,
 				18A62CD21B96886800D04999 /* Expression_25@2x.png in Resources */,
 				18A62D231B968A7700D04999 /* CIVoice@2x.png in Resources */,
